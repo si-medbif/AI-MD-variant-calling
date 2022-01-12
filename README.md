@@ -2,19 +2,23 @@
 
 ## Somatic variant detection
 
-### Test data:
-    * Normal:  Pair end WGS: 702,863,004 reads
-    * Tumor :  Pair end WGS: 423,930,673 reads
+### Test data1:
+    * Normal : Pair end WGS: 346,586,494 reads
+    * Tumor : Pair end WGS: 354,821,067 reads
 
+### Full run times, FASTQ to VCF:
+    * Data1: 3h 23m                        
+    
 ### Run times, FASTQ to BAM:
-    * Tumor : 2 hour 25 minutes  3 second                        
-    * Normal: 1 hour 65 minutes 35 seconds
+    * Tumor1 : 1h 20m                        
+    * Normal1: 0h 53m
                         
 ### Run times, BAM to VCF
-    * Mutect2:             3 hours 25 minutes 59 seconds
-    * SomaticSniper        4 hours  4 minutes 45 seconds
-    * Manta         1 day  9 hours 47 minutes 28 seconds
-    * Strelka       1 day 21 hours  2 minutes 30 seconds
+    * Mutect2 parabricks              0h 46m
+    * Mutect2                     1d  4h 40m
+    * SomaticSniper parabricks        4h  4m
+    * Manta parabricks            1d  9h 47m
+    * Strelka parabricks          1d 21h  2m
 
 #### Notes:
   * Mutect2
