@@ -23,11 +23,15 @@ export REF=/shared/dataset/parabricks_sample/Ref
 # Fastq-files
 export DATA=/home/harald.gro/data
 
-pbrun somaticsniper \
+pbrun mutectcaller \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
-	--out-file somaticsniper_0006.vcf \
-	--gpu-devices 0,1 --num-gpus=2 \
+	--knownSites ${REF}/Homo_sapiens_assembly38.known_indels.vcf.gz \
+	--gpu-devices 0,1,2,3,4 --num-gpus=2 \
 	--in-tumor-bam ${DATA}/BB-T0006-DNA.bam  \
+	--tumor-name BB-T0006-DNA \
+	--in-tumor-recal-file ${DATA}/BB-T0006-DNA.recal.txt \
 	--in-normal-bam ${DATA}/BB-B0006-DNA.bam \
-	--out-format vcf
+	--normal-name BB-B0006-DNA
+	--in-normal-recal-file ${DATA}/BB-B0006-DNA.recal.txt \
+	--out-vcf  BB-T0006-DNA_mutect2.vcf
 

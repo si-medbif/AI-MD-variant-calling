@@ -23,11 +23,10 @@ export REF=/shared/dataset/parabricks_sample/Ref
 # Fastq-files
 export DATA=/home/harald.gro/data
 
-pbrun somaticsniper \
+pbrun strelka_workflow \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
-	--out-file somaticsniper_0006.vcf \
+	--out-prefix strelka_manta \
 	--gpu-devices 0,1 --num-gpus=2 \
 	--in-tumor-bam ${DATA}/BB-T0006-DNA.bam  \
 	--in-normal-bam ${DATA}/BB-B0006-DNA.bam \
-	--out-format vcf
 
