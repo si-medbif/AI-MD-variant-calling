@@ -23,3 +23,14 @@ Available callers for somatic variants are currently:
 | LoFreq       | V            | X          | V   | V     | X    | V               |
 | Manta        | V            | X          | X   | X     | V    | X               |
 | Strelka      | V            | X          | V   | V     | V    | X               |
+
+## Additional software
+
+Steps not included in the PARABRICKS package can most easily be installed through the use of singularity images.
+
+Since the main somatic pipeline does not (yet) filter the variant calls, when this is needed it's possible to use the GATK software to run the FilterMutectCalls process manually on the output files.
+
+Creating the singularit image of GATK:
+    singularity build gatk.4.0.12.0.sif docker://broadinstitute/gatk:4.0.12.0
+
+The list of available versions can be found on [DockerHub](https://hub.docker.com/r/broadinstitute/gatk/tags). The main thing for this use case is that Mutect2 versions starting from 4.1 outputs a stats-file that is required for filtering. The 4.0.12.0 version is the last before version 4.1.

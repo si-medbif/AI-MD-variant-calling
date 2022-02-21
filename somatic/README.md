@@ -1,7 +1,7 @@
 # Somatic variant detection
 
 ## Complete pipeline from FASTQ to VCF:
-    * $ run_full_somatic.sh config1.txt
+    run_full_somatic.sh config1.txt
 
   The main script to run the whole analysis from FASTQ to VCF. It requires both a tumor sample and a normal sample. Both sequenced as pair-end reads, using either WGS or WES. The config-file lists information for one sample per line with a format as described below. In this way several samples can be queued up for analysis.
 
@@ -12,24 +12,24 @@ This is a text file with comma separated columns:
 2. The location to output the generated BAM files
 3. The location to output the generated VCF files
 4. The name for the tumor sample
-5. The 1st FASTQ files for the tumor sample
-6. The 2nd FASTQ files for the tumor sample
+5. The 1st FASTQ file for the tumor sample
+6. The 2nd FASTQ file for the tumor sample
 7. The name for the normal sample
-8. The 1st FASTQ files for the normal sample
-9. The 2nd FASTQ files for the normal sample
+8. The 1st FASTQ file for the normal sample
+9. The 2nd FASTQ file for the normal sample
 
 ## Steps
 Each step in the pipeline can also be run individually. The columns in the configuration file will be different, as shown.
 
 ## Read alignment and BAM processing:
-    * $ ./run_fastq2bam.sh config2.txt
+    run_fastq2bam.sh config2.txt
 
 ### Configuration file 2
 1. The location of the FASTQ files
 2. The location to output the generated BAM files
 3. The name for the sample
-4. The 1st FASTQ files for the sample
-5. The 2nd FASTQ files for the sample
+4. The 1st FASTQ file for the sample
+5. The 2nd FASTQ file for the sample
 
 ## Only somatic variant calling
     * run_mutect2.sh config3.txt
@@ -55,17 +55,5 @@ Each step in the pipeline can also be run individually. The columns in the confi
     * Tumor : Pair end WGS: 354,821,067 reads
 
 ## Full run times, FASTQ to VCF, using the main pipeline with BWA and the GATK software packages:
-    * Data1: 3h 23m                        
+    * Tumor1 & Normal1: 3h 23m                        
     
-## Run times, FASTQ to BAM:
-    * Tumor1 : 1h 20m                        
-    * Normal1: 0h 53m
-                        
-## Run times, BAM to VCF
-    * Mutect2, GPU                       46m
-    * Mutect2, CPU                1d  4h 40m
-    * SomaticSniper, 1 thread         4h  4m
-    * SomaticSniper, 8 thread            57m
-    * Manta                       1d  9h 47m
-    * Strelka                     1d 21h  2m
-
