@@ -1,29 +1,29 @@
 # HPC-pipelines
 
+## Description
+
+This repository contains scripts and information for doing variant detection on a HPC cluster with GPU support. Input data can be either whole genome sequence (WGS) or whole exome sequence (WES). Currently there is a section on somatic variant detection, with germline detection being added at a later date.
+
+The GPU software used in this project is from NVIDIA and is called CLARA PARABRICKS Pipelines. The pipeline cover analysis from read data (FASTQ-files) to called variants (VCF-files). 
+
+Documentation site for software: https://docs.nvidia.com/clara/parabricks/v3.6/text/software_overview.html
+
+
+## Germline variant detection
+
 ## Somatic variant detection
 
-### Test data1:
-    * Normal : Pair end WGS: 346,586,494 reads
-    * Tumor : Pair end WGS: 354,821,067 reads
+PB is using BWA for read mapping, and GATK for processing of BAM files.
 
-### Full run times, FASTQ to VCF:
-    * Data1: 3h 23m                        
-    
-### Run times, FASTQ to BAM:
-    * Tumor1 : 1h 20m                        
-    * Normal1: 0h 53m
-                        
-### Run times, BAM to VCF
-    * Mutect2 parabricks              0h 46m
-    * Mutect2                     1d  4h 40m
-    * SomaticSniper parabricks        4h  4m
-    * Manta parabricks            1d  9h 47m
-    * Strelka parabricks          1d 21h  2m
+Available callers for somatic variants are currently:
 
-#### Notes:
-  * Mutect2
-    * VCF files have to be filtered using filtermutectcall.
-    * GATK versions after 4.1.0.0 requires a "Mutect stats table" generated from Mutect2 which is not present here.
-    * For GATK versions before 4.0.12.0
-      * Add this line to the VCF header: ##INFO=<ID=P_CONTAM,Number=1,Type=Float,Description="Posterior probability for alt allele to be due to contamination">
-      * Remove any multiallelic sites.
+* Mutect2
+  * Mutect2 can call somatic variants from either matched Tumor-Normal data or Tumor-only data.
+* SomatcSniper
+  * SomaticSniper can call somatic variants from matched Tumor-Normal data. The tool does not currently seem to be GPU accelrated.
+* LoFreq
+  * LoFreq can call somatic variants from matched Tumor-Normal data
+* Manta
+  * Manta calls somatic structural variants and indels from matched Tumor-Normal data. This tool is not GPU accelerated.
+* Strelka
+  * Strelka can call somatic SNP variants and indels in combination with Manta using matched Tumor-Normal data. This tool is not GPU accelerated.
