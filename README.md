@@ -4,10 +4,9 @@
 
 This repository contains scripts and information for doing variant detection on a HPC cluster with GPU support. Input data can be either whole genome sequence (WGS) or whole exome sequence (WES). Currently there is a section on somatic variant detection, with germline detection being added at a later date.
 
-The GPU software used in this project is from NVIDIA and is called CLARA PARABRICKS Pipelines. The pipeline cover analysis from read data (FASTQ-files) to called variants (VCF-files). 
+The GPU software used in this project is from NVIDIA and is called CLARA PARABRICKS Pipelines. The pipeline cover analysis from read data (FASTQ-files) to called variants (VCF-files). For the full documentation including any additional options and updates, please visit [NVIDIA CLARA PARABRICKS](https://docs.nvidia.com/clara/parabricks/v3.6/text/software_overview.html)
 
-For more detailed description and additional options for the various software packages, please visit the documentation for [NVIDIA CLARA PARABRICKS](https://docs.nvidia.com/clara/parabricks/v3.6/text/software_overview.html)
-
+The pipelines for calling germline and somatic variants are further described via the links below.
 
 ## Germline variant detection
 
@@ -17,13 +16,10 @@ PB is using BWA for read mapping, and GATK for processing of BAM files.
 
 Available callers for somatic variants are currently:
 
-* Mutect2
-  * Mutect2 can call somatic variants from either matched Tumor-Normal data or Tumor-only data.
-* SomatcSniper
-  * SomaticSniper can call somatic variants from matched Tumor-Normal data. The tool does not currently seem to be GPU accelrated.
-* LoFreq
-  * LoFreq can call somatic variants from matched Tumor-Normal data
-* Manta
-  * Manta calls somatic structural variants and indels from matched Tumor-Normal data. This tool is not GPU accelerated.
-* Strelka
-  * Strelka can call somatic SNP variants and indels in combination with Manta using matched Tumor-Normal data. This tool is not GPU accelerated.
+| Software     | Tumor-Normal | Tumor-Only | SNP | INDEL |  SV  | GPU accelerated |
+| ------------ | :----------: | :--------: | :-: | :---: | :--: | :-------------: |
+| Mutect2      | V            | V          | V   | V     | X    | V               |
+| SomatcSniper | V            | X          | V   | V     | X    | X               |
+| LoFreq       | V            | X          | V   | V     | X    | V               |
+| Manta        | V            | X          | X   | X     | V    | X               |
+| Strelka      | V            | X          | V   | V     | V    | X               |
