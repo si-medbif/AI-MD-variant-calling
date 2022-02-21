@@ -6,12 +6,12 @@ This repository contains scripts and information for doing variant detection on 
 
 The GPU software used in this project is from NVIDIA and is called CLARA PARABRICKS Pipelines. The pipeline cover analysis from read data (FASTQ-files) to called variants (VCF-files). 
 
-Documentation site for software: https://docs.nvidia.com/clara/parabricks/v3.6/text/software_overview.html
+For more detailed description and additional options for the various software packages, please visit the documentation for [NVIDIA CLARA PARABRICKS](https://docs.nvidia.com/clara/parabricks/v3.6/text/software_overview.html)
 
 
 ## Germline variant detection
 
-## Somatic variant detection
+## [Somatic variant detection](https://github.com/si-medbif/hpc-pipelines/tree/main/somatic#somatic-variant-detection)
 
 PB is using BWA for read mapping, and GATK for processing of BAM files.
 
