@@ -20,18 +20,22 @@ export PB_PATH=/shared/parabrick/parabricks
 export PATH=$PB_PATH:$PATH
 export PB_HOME=/shared/parabrick/parabricks
 export REF=/shared/dataset/parabricks_sample/Ref
-# Fastq-files
-export DATA=/home/harald.gro/data
+# User-input
+BAMDATA=$1
+VCFDATA=$2
+TUMOR=$3
+TUMORBAM=$4
+NORMAL=$5
+NORMALBAM=$6
 
 pbrun mutectcaller \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
-	--knownSites ${REF}/Homo_sapiens_assembly38.known_indels.vcf.gz \
-	--gpu-devices 0,1,2,3,4 --num-gpus=2 \
-	--in-tumor-bam ${DATA}/BB-T0006-DNA.bam  \
-	--tumor-name BB-T0006-DNA \
-	--in-tumor-recal-file ${DATA}/BB-T0006-DNA.recal.txt \
-	--in-normal-bam ${DATA}/BB-B0006-DNA.bam \
-	--normal-name BB-B0006-DNA
-	--in-normal-recal-file ${DATA}/BB-B0006-DNA.recal.txt \
-	--out-vcf  BB-T0006-DNA_mutect2.vcf
+	--in-tumor-bam ${BAMDATA}/${TUMORBAM}.bam  \
+	--num-gpus 2 \
+	--tumor-name ${TUMOR} \
+	--in-tumor-recal-file ${BAMDATA}/${TUMORBAM}.recal.txt \
+	--in-normal-bam ${BAMDATA}/${NORMALBAM}.bam \
+	--normal-name ${NORMAL} \
+	--in-normal-recal-file ${BAMDATA}/${NORMALBAM}.recal.txt \
+	--out-vcf  ${VCFDATA}/${TUMOR}_m2.vcf
 

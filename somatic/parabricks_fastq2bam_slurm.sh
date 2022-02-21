@@ -23,24 +23,16 @@ export REF=/shared/dataset/parabricks_sample/Ref
 # User-input
 FASTQDATA=$1
 BAMDATA=$2
-VCFDATA=$3
-TUMOR=$4
-TUMOR1=$5
-TUMOR2=$6
-NORMAL=$7
-NORMAL1=$8
-NORMAL2=$9
+TUMOR=$3
+TUMOR1=$4
+TUMOR2=$5
 
 
-pbrun somatic \
+pbrun fq2bam \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 	--knownSites ${REF}/Homo_sapiens_assembly38.known_indels.vcf.gz \
-	--gpu-devices 0,1 --num-gpus=2 \
-	--in-tumor-fq ${FASTQDATA}/${TUMOR1} ${FASTQDATA}/${TUMOR2} "@RG\tID:${TUMOR}_rg1\tLB:lib1\tPL:bar\tSM:${TUMOR}\tPU:${TUMOR}_rg1" \
+	--num-gpus=2 \
+	--in-fq ${FASTQDATA}/${TUMOR1} ${FASTQDATA}/${TUMOR2} "@RG\tID:${TUMOR}_rg1\tLB:lib1\tPL:bar\tSM:${TUMOR}\tPU:${TUMOR}_rg1" \
 	--out-tumor-bam ${BAMDATA}/${TUMOR}.bam  \
-	--out-tumor-recal-file ${BAMDATA}/${TUMOR}.recal.txt \
-	--in-normal-fq ${FASTQDATA}/${NORMAL1} ${FASTQDATA}/${NORMAL2} "@RG\tID:${NORMAL}_rg1\tLB:lib1\tPL:bar\tSM:${NORMAL}\tPU:${NORMAL}_rg1" \
-	--out-normal-bam ${BAMDATA}/${NORMAL}.bam \
-	--out-normal-recal-file ${BAMDATA}/${NORMAL}.recal.txt \
-	--out-vcf  ${VCFDATA}/${TUMOR}_m2.vcf
+	--out-recal-file ${BAMDATA}/${TUMOR}.recal.txt \
 
