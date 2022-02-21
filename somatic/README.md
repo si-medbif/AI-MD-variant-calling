@@ -1,9 +1,9 @@
 # Somatic variant detection
 
-## Complete pipeline from FASTQ to VCF
-* run_full_somatic.sh
+## Complete pipeline from FASTQ to VCF:
+    * $ run_full_somatic.sh config1.txt
 
-  The main script to run the whole analysis from FASTQ to VCF. It requires both a tumor sample and a normal sample. Both sequenced as pair-end reads, using either WGS or WES. The user is required to create a text file with the following tab separated columns:
+  The main script to run the whole analysis from FASTQ to VCF. It requires both a tumor sample and a normal sample. Both sequenced as pair-end reads, using either WGS or WES. The config-file lists information for one sample per line with a format as described below. In this way several samples can be queued up for analysis.
 
 ### Configuration file
 
@@ -18,17 +18,35 @@ This is a text file with comma separated columns:
 8. The 1st FASTQ files for the normal sample
 9. The 2nd FASTQ files for the normal sample
 
-## Only somatic variant calling
-* run_mutect2.sh
+## Steps
+Each step in the pipeline can also be run individually. The columns in the configuration file will be different, as shown.
 
-### Configuration file
-This is a text file with comma separated columns:
+## Read alignment and BAM processing:
+    * $ ./run_fastq2bam.sh config2.txt
+
+### Configuration file 2
+1. The location of the FASTQ files
+2. The location to output the generated BAM files
+3. The name for the sample
+4. The 1st FASTQ files for the sample
+5. The 2nd FASTQ files for the sample
+
+## Only somatic variant calling
+    * run_mutect2.sh config3.txt
+
+### Configuration file 3
 1. The location to output the generated BAM files
 2. The location to output the generated VCF files
 3. The name for the tumor sample
 4. The tumor BAM file
 5. The name for the normal sample
 6. The normal bam file
+
+## Notes:
+  * Mutect2
+    * VCF files have to be filtered using filtermutectcall.
+    * GATK versions after 4.1.0.0 requires a "Mutect stats table" generated from Mutect2 which is not present here.
+
 
 # Example run-times
 
@@ -51,10 +69,3 @@ This is a text file with comma separated columns:
     * Manta                       1d  9h 47m
     * Strelka                     1d 21h  2m
 
-## Notes:
-  * Mutect2
-    * VCF files have to be filtered using filtermutectcall.
-    * GATK versions after 4.1.0.0 requires a "Mutect stats table" generated from Mutect2 which is not present here.
-    * For GATK versions before 4.0.12.0
-      * Add this line to the VCF header: ##INFO=<ID=P_CONTAM,Number=1,Type=Float,Description="Posterior probability for alt allele to be due to contamination">
-      * Remove any multiallelic sites.

@@ -33,6 +33,6 @@ pbrun fq2bam \
 	--knownSites ${REF}/Homo_sapiens_assembly38.known_indels.vcf.gz \
 	--num-gpus=2 \
 	--in-fq ${FASTQDATA}/${TUMOR1} ${FASTQDATA}/${TUMOR2} "@RG\tID:${TUMOR}_rg1\tLB:lib1\tPL:bar\tSM:${TUMOR}\tPU:${TUMOR}_rg1" \
-	--out-tumor-bam ${BAMDATA}/${TUMOR}.bam  \
+	--out-bam ${BAMDATA}/${TUMOR}.bam  \
 	--out-recal-file ${BAMDATA}/${TUMOR}.recal.txt \
 
