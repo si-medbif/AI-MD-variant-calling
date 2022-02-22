@@ -27,9 +27,6 @@ VCFDATA=$3
 TUMOR=$4
 TUMOR1=$5
 TUMOR2=$6
-NORMAL=$7
-NORMAL1=$8
-NORMAL2=$9
 
 
 pbrun somatic \
@@ -39,9 +36,6 @@ pbrun somatic \
 	--in-tumor-fq ${FASTQDATA}/${TUMOR1} ${FASTQDATA}/${TUMOR2} "@RG\tID:${TUMOR}_rg1\tLB:lib1\tPL:bar\tSM:${TUMOR}\tPU:${TUMOR}_rg1" \
 	--out-tumor-bam ${BAMDATA}/${TUMOR}.bam  \
 	--out-tumor-recal-file ${BAMDATA}/${TUMOR}.recal.txt \
-	--in-normal-fq ${FASTQDATA}/${NORMAL1} ${FASTQDATA}/${NORMAL2} "@RG\tID:${NORMAL}_rg1\tLB:lib1\tPL:bar\tSM:${NORMAL}\tPU:${NORMAL}_rg1" \
-	--out-normal-bam ${BAMDATA}/${NORMAL}.bam \
-	--out-normal-recal-file ${BAMDATA}/${NORMAL}.recal.txt \
 	--out-vcf  ${VCFDATA}/${TUMOR}_m2.vcf
 
 ./filter_m2_singularity.sh ${VCFDATA} ${TUMOR}

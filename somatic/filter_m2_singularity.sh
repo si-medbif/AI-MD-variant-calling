@@ -1,8 +1,12 @@
 #! /bin/bash
 
 #SBATCH --job-name=FilterMutectCalls
-#SBATCH --ntasks=8
+#SBATCH --ntasks=1
+#SBATCH --output=filtermutectcalls_%j.log
 #SBATCH --nodes=1
+#SBATCH --nodelist=omega
+#SBATCH --mem=8gb
+#SBATCH --cpus-per-task=1
 
 # Parabricks software and reference resources
 export PB_PATH=/shared/parabrick/parabricks
@@ -15,7 +19,7 @@ TUMOR=$2
 
 singularity run \
 	--bind ${REF}:/ref,${VCFFOLDER}:/data \
-	gatk4-0-12-0.sif \
+	gatk.4.0.12.0.sif \
 	gatk --java-options "-Xmx8g" FilterMutectCalls \
 	-R /ref/Homo_sapiens_assembly38.fasta \
 	-V /data/${TUMOR}_m2.vcf \

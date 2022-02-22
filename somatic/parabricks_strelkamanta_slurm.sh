@@ -3,9 +3,9 @@
 # For the complete information about SBATCH:
 # https://slurm.schedmd.com/sbatch.html.
 
-#SBATCH --job-name=parabricks-strelka    # Job name    # default: script name or sbatch
+#SBATCH --job-name=strelka-parabricks    # Job name    # default: script name or sbatch
 #SBATCH --ntasks=1                    # Number of tasks    # default: 1 task per node
-#SBATCH --output=strelka_%j.log           # Output file    # default: slurm-<jobid>.out
+#SBATCH --output=job%j_strelka.log           # Output file    # default: slurm-<jobid>.out
 #SBATCH --nodes=1              # Req min-max of nodes      # default: 1-as many as possible to satisfy the job without delay
 #SBATCH --time=24:00:00               # Time limit hrs:min:sec   # default: 01:00:00 (+1 hours of extra overtime limit) 
 #SBATCH --nodelist=omega
