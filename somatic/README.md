@@ -1,11 +1,29 @@
 # Somatic variant detection
 
-## Complete pipeline from FASTQ to VCF:
+## Getting started:
+Make sure the following is available:
+1. This repository
+2. The input FASTQ files
+3. A singularity image with GATK v4.0.12.0
+
+| Task | Slurm-script | Helper-script |
+| --- | --- | --- |
+| Full | parabricks_somatic_slurm.sh | run_full_somatic.sh |
+| Create BAM | parabricks_fastq2bam_slurm.sh | run_fastq2bam.sh |
+| Run Mutect2 | parabricks_mutect2_slurm.sh | run_mutect2.sh |
+| Run SomaticSniper | parabricks_somaticsniper_slurm.sh | run_somaticsniper.sh |
+| Run Strelka | parabricks_strelkamanta_slurm.sh | run_sv_strelkamanta.sh |
+
+The slurm scripts contains reasonable default settings for the SLURM parameters, as well as the Parabricks command line. Information about the input files and folder locations have to be provided on the command line.
+
+Alternatively, the helper scripts will accept a configuration file as input where all the details about the samples to be run can be provided as a comma separated text file. The scripts will read the information of one sample at the time and call the appropriate sclurm script.
+
+## Full pipeline from FASTQ to VCF:
     run_full_somatic.sh config1.txt
 
   The main script to run the whole analysis from FASTQ to VCF. It requires both a tumor sample and a normal sample. Both sequenced as pair-end reads, using either WGS or WES. The config-file lists information for one sample per line with a format as described below. In this way several samples can be queued up for analysis.
 
-### Configuration file
+### Configuration1 file
 
 This is a text file with comma separated columns:
 1. The location of the FASTQ files
@@ -32,7 +50,9 @@ Each step in the pipeline can also be run individually. The columns in the confi
 5. The 2nd FASTQ file for the sample
 
 ## Only somatic variant calling
-    * run_mutect2.sh config3.txt
+    run_mutect2.sh config3.txt
+    run_somaticsniper.sh config3.txt
+    run_sv_strelkamanta.sh config3.txt
 
 ### Configuration file 3
 1. The location to output the generated BAM files
@@ -46,6 +66,7 @@ Each step in the pipeline can also be run individually. The columns in the confi
   * Mutect2
     * VCF files have to be filtered using filtermutectcall.
     * GATK versions after 4.1.0.0 requires a "Mutect stats table" generated from Mutect2 which is not present here.
+    * The last GATK version before 4.1 is 4.0.12.0
 
 
 # Example run-times
