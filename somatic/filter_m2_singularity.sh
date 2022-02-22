@@ -22,5 +22,6 @@ singularity run \
 	gatk.4.0.12.0.sif \
 	gatk --java-options "-Xmx8g" FilterMutectCalls \
 	-R /ref/Homo_sapiens_assembly38.fasta \
+	--filtering-stats /data/${TUMOR}_Mutect2FilteringStats.tsv \
 	-V /data/${TUMOR}_m2.vcf \
 	-O /data/${TUMOR}_m2_filter.vcf
