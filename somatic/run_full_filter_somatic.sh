@@ -19,11 +19,4 @@ do
 	normal1="${arr[7]}"
 	normal2="${arr[8]}"
 	sbatch parabricks_somatic_slurm.sh $fastq $bam $vcf $tumor $tumor1 $tumor2 $normal $normal1 $normal2
-	echo "--------------------------------"
-	echo "|                              |"
-	echo "| Finished Parabricks pipeline |"
-	echo "| Starting FilterMutectCalls   |"
-	echo "|                              |"
-	echo "--------------------------------"
-	sbatch filter_m2_singularity.sh	$vcf $tumor
 done
