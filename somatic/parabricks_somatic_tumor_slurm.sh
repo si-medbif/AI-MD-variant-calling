@@ -38,4 +38,4 @@ pbrun somatic \
 	--out-tumor-recal-file ${BAMDATA}/${TUMOR}.recal.txt \
 	--out-vcf  ${VCFDATA}/${TUMOR}_m2.vcf
 
-./filter_m2_singularity.sh ${VCFDATA} ${TUMOR}
+#./filter_m2_singularity.sh ${VCFDATA} ${TUMOR}

@@ -1,0 +1,9 @@
+/shared/example_data/fastq,
+/home/harald.gro/data/bam,
+/home/harald.gro/data/vcf,
+WES_EA_T_1,
+WES_EA_T_1_R1.fastq.gz,
+WES_EA_T_1_R2.fastq.gz,
+WES_EA_N_1,
+WES_EA_N_1_R1.fastq.gz,
+WES_EA_N_1_R2.fastq.gz
