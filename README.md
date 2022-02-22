@@ -8,11 +8,24 @@ The GPU software used in this project is from NVIDIA and is called CLARA PARABRI
 
 The pipelines for calling germline and somatic variants are further described via the links below.
 
+## Getting started
+
+Download this repository and move into the created folder
+```bash
+git clone https://github.com/si-medbif/hpc-pipelines.git
+cd hpc-pipelines
+```
+
+Check if the singularity image of GATK is available. If not, run this command to download and build it:
+```bash
+singularity build gatk.4.0.12.0.sif docker://broadinstitute/gatk:4.0.12.0
+```
+
 ## Germline variant detection
 
 ## [Somatic variant detection](https://github.com/si-medbif/hpc-pipelines/tree/main/somatic#somatic-variant-detection)
 
-PB is using BWA for read mapping, and GATK for processing of BAM files.
+ParaBricks is using BWA for read mapping, and GATK for processing of BAM files.
 
 Available callers for somatic variants are currently:
 
@@ -29,8 +42,3 @@ Available callers for somatic variants are currently:
 Steps not included in the PARABRICKS package can most easily be installed through the use of singularity images.
 
 Since the main somatic pipeline does not (yet) filter the variant calls, when this is needed it's possible to use the GATK software to run the FilterMutectCalls process manually on the output files.
-
-Creating the singularit image of GATK:
-    singularity build gatk.4.0.12.0.sif docker://broadinstitute/gatk:4.0.12.0
-
-The list of available versions can be found on [DockerHub](https://hub.docker.com/r/broadinstitute/gatk/tags). The main thing for this use case is that Mutect2 versions starting from 4.1 outputs a stats-file that is required for filtering. The 4.0.12.0 version is the last before version 4.1.
