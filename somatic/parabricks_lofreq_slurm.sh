@@ -13,12 +13,11 @@
 #SBATCH --export=ALL        # Pass the env var
 #SBATCH --partition=batch       # Req specific partition    # default: batch
 #SBATCH --mem=128gb                    # Memory size requested   # default: 4gb
-#SBATCH --cpus-per-task=4             # Number of CPUs per task   # default: 1 CPU per task 
+#SBATCH --cpus-per-task=24             # Number of CPUs per task   # default: 1 CPU per task 
 
 # Parabricks software and reference resources
-export PB_PATH=/shared/parabrick/parabricks
+export PB_HOME=/shared/software/software/parabricks-ampere
 export PATH=$PB_PATH:$PATH
-export PB_HOME=/shared/parabrick/parabricks
 export REF=/shared/dataset/parabricks_sample/Ref
 
 # User input

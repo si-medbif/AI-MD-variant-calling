@@ -72,10 +72,14 @@ This is a text file with comma separated columns:
 
 # Example run-times
 
-## Test data1:
-    * Normal : 
-    * Tumor : 
+## Test data:
+* WES
+  * Normal : WES_EA_N_1
+  * Tumor : WES_EA_T_1
+* WGS
+  * Normal : 
+  * Tumor :
 
 ## Full run times, FASTQ to VCF, using the main pipeline with BWA and the GATK software packages:
-    *                        
+    * WES  19m                       
     
