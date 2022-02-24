@@ -19,9 +19,9 @@ TUMOR=$2
 
 singularity run \
 	--bind ${REF}:/ref,${VCFFOLDER}:/data \
-	gatk.4.0.12.0.sif \
+	/shared/example_data/singularity/gatk.4.0.12.0.sif \
 	gatk --java-options "-Xmx8g" FilterMutectCalls \
 	-R /ref/Homo_sapiens_assembly38.fasta \
-	--filtering-stats /data/${TUMOR}_Mutect2FilteringStats.tsv \
+	--stats /data/${TUMOR}_Mutect2FilteringStats.tsv \
 	-V /data/${TUMOR}_m2.vcf \
 	-O /data/${TUMOR}_m2_filter.vcf

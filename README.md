@@ -4,9 +4,11 @@
 
 This repository contains scripts and information for doing variant detection on a HPC cluster with GPU support. Input data can be either whole genome sequence (WGS) or whole exome sequence (WES). Currently there is a section on somatic variant detection, with germline detection being added at a later date.
 
-The GPU software used in this project is from NVIDIA and is called CLARA PARABRICKS Pipelines. The pipeline cover analysis from read data (FASTQ-files) to called variants (VCF-files). For the full documentation including any additional options and updates, please visit [NVIDIA CLARA PARABRICKS](https://docs.nvidia.com/clara/parabricks/v3.6/text/software_overview.html)
+The GPU software used in this project is from NVIDIA and is called CLARA PARABRICKS Pipelines. The pipeline cover analysis from read data (FASTQ-files) to called variants (VCF-files). For the full documentation including any additional options and updates, please visit [NVIDIA CLARA PARABRICKS](https://docs.nvidia.com/clara/parabricks/3.7.0/index.html)
 
 The pipelines for calling germline and somatic variants are further described via the links below.
+
+*Note:* All scripts and documentation was created with Parabricks version 3.6. The current Parabricks version on the server is 3.7 so there might be minor differences.
 
 ## Getting started
 
@@ -14,11 +16,6 @@ Download this repository and move into the created folder
 ```bash
 git clone https://github.com/si-medbif/hpc-pipelines.git
 cd hpc-pipelines
-```
-
-Check if the singularity image of GATK is available. If not, run this command to download and build it:
-```bash
-singularity build gatk.4.0.12.0.sif docker://broadinstitute/gatk:4.0.12.0
 ```
 
 ## Germline variant detection
@@ -37,8 +34,5 @@ Available callers for somatic variants are currently:
 | Manta        | V            | X          | X   | X     | V    | X               |
 | Strelka      | V            | X          | V   | V     | V    | X               |
 
-## Additional software
 
-Steps not included in the PARABRICKS package can most easily be installed through the use of singularity images.
 
-Since the main somatic pipeline does not (yet) filter the variant calls, when this is needed it's possible to use the GATK software to run the FilterMutectCalls process manually on the output files.

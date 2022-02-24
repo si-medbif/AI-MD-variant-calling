@@ -2,6 +2,7 @@
 
 # For the complete information about SBATCH:
 # https://slurm.schedmd.com/sbatch.html.
+# TODO: Look into array jobs. (https://help.rc.ufl.edu/doc/SLURM_Job_Arrays)
 
 #SBATCH --job-name=somatic-parabricks    # Job name    # default: script name or sbatch
 #SBATCH --ntasks=1                    # Number of tasks    # default: 1 task per node
@@ -12,7 +13,7 @@
 #SBATCH --nodelist=omega
 #SBATCH --export=ALL        # Pass the env var
 #SBATCH --partition=batch       # Req specific partition    # default: batch
-#SBATCH --mem=256gb                    # Memory size requested   # default: 4gb
+#SBATCH --mem=384gb                    # Memory size requested   # default: 4gb
 #SBATCH --cpus-per-task=32             # Number of CPUs per task   # default: 1 CPU per task 
 
 # Parabricks software and reference resources

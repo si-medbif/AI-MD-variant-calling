@@ -25,6 +25,8 @@ run_full_somatic_tumor.sh config1.txt
 
   The main scripts to run the whole analysis from FASTQ to VCF. It can be run both with a set of matched tumor-normal FASTQ files, or with only a tumor FASTQ file. The config-file lists information for one sample per line with a format as described below. In this way several samples can be queued up for analysis.
 
+The main somatic pipeline does not (yet) filter the variant calls, this step has been added using a singluarity image of GATK v4.0.12.0 to run the FilterMutectCalls process.
+
 ### Configuration1 file
 
 This is a text file with comma separated columns:
