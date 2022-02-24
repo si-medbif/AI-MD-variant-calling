@@ -13,7 +13,7 @@ The following scripts are ready for use depending on which analysis is required
 | LoFreq | parabricks_lofreq_slurm.sh | run_lofreq.sh |
 | Strelka | parabricks_strelkamanta_slurm.sh | run_sv_strelkamanta.sh |
 
-The slurm scripts contains reasonable default settings for the SLURM parameters, as well as the Parabricks command line. Information about the input files and folder locations have to be provided on the command line.
+The slurm scripts contains reasonable default settings for the [SLURM](https://github.com/si-medbif/hpc-pipelines/blob/main/documents/slurm.md) parameters, as well as the Parabricks command line. Information about the input files and folder locations have to be provided on the command line.
 
 Alternatively, the helper scripts will accept a configuration file as input where all the details about the samples to be run can be provided as a comma separated text file. The scripts will read the information of one sample at the time and call the appropriate sclurm script.
 
