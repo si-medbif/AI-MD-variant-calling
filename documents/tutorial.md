@@ -15,6 +15,7 @@ export PATH="${PWD}/hpc-pipelines/somatic":$PATH
 Create the configuration file with sample details (or edit the file in a text editor)
 ```bash
 echo /shared/example_data/fastq,${PWD}/bam,${PWD}/vcf,WES_EA_T_1,WES_EA_T_1_R1.fastq.gz,WES_EA_T_1_R2.fastq.gz,WES_EA_N_1,WES_EA_N_1_R1.fastq.gz,WES_EA_N_1_R2.fastq.gz > config/config.txt
+printf "${PWD}/bam,WES_EA_T_1,WES_EA_T_1\n${PWD}/bam,WES_EA_N_1,WES_EA_N_1\n" > config/config3.txt
 ```
 
 Run the project
@@ -22,7 +23,12 @@ Run the project
 run_full_somatic.sh config/config.txt
 ```
 
-Calculate QC-stats
+Calculate QC-stats for the BAM files (output will be one folder for each BAM file in the BAM folder)
 ```bash
-run_collectmultiplemetrics.sh config3.txt
+run_collectmultiplemetrics.sh config/config3.txt
+```
+
+The filtered VCF file will be in the VCF folder:
+```bash
+ll vcf
 ```
