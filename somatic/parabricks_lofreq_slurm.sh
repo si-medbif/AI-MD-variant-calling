@@ -3,7 +3,7 @@
 # For the complete information about SBATCH:
 # https://slurm.schedmd.com/sbatch.html.
 
-#SBATCH --job-name=parabricks-lofreq    # Job name    # default: script name or sbatch
+#SBATCH --job-name=lofreq-parabricks    # Job name    # default: script name or sbatch
 #SBATCH --ntasks=1                    # Number of tasks    # default: 1 task per node
 #SBATCH --output=job%j_lofreq.log           # Output file    # default: slurm-<jobid>.out
 #SBATCH --nodes=1              # Req min-max of nodes      # default: 1-as many as possible to satisfy the job without delay
