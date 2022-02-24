@@ -15,6 +15,7 @@ export PATH="${PWD}/hpc-pipelines/somatic":$PATH
 Create the configuration file with sample details (or edit the file in a text editor)
 ```bash
 echo /shared/example_data/fastq,${PWD}/bam,${PWD}/vcf,WES_EA_T_1,WES_EA_T_1_R1.fastq.gz,WES_EA_T_1_R2.fastq.gz,WES_EA_N_1,WES_EA_N_1_R1.fastq.gz,WES_EA_N_1_R2.fastq.gz > config/config.txt
+awk 'BEGIN { FS = ","; OFS = "," } ; { print $2,$3,$4,$4,$7,$7 }' config/config.txt  > config/config2.txt
 printf "${PWD}/bam,WES_EA_T_1,WES_EA_T_1\n${PWD}/bam,WES_EA_N_1,WES_EA_N_1\n" > config/config3.txt
 ```
 
@@ -32,3 +33,12 @@ The filtered VCF file will be in the VCF folder:
 ```bash
 ll vcf
 ```
+
+Run the remaining variantcallers:
+```bash
+run_somaticsniper.sh config/config2.txt
+run_lofreq.sh config/config2.txt
+run_sv_strelkamanta.sh config/config2.txt
+```
+
+
