@@ -2,7 +2,21 @@
 
 ## Description
 
-This repository contains scripts and information for doing variant detection on a HPC cluster with GPU support. Input data can be either whole genome sequence (WGS) or whole exome sequence (WES). Currently there is a section on somatic variant detection, with germline detection being added at a later date.
+This repository contains scripts and information for doing variant detection on a HPC cluster with GPU support. Input data can be either whole genome sequence (WGS) or whole exome sequence (WES). Currently there is a section on somatic variant detection. Germline and RNA variant detection will be added at a later date.
+
+## Mahidol HPC-AI Cluster
+
+Currently, the following GPU resources are available to use:
+* 1 x DGX A100 Server with 8 x NVIDIA A100-80GB GPUs
+* 2 x DGX A100 Server with 8 x NVIDIA A100-40GB GPUs
+
+The cluster operates two job schedulers to manage the workloads:
+* [Kubernetes](https://kubernetes.io/docs/tutorials/)
+* [Slurm](https://slurm.schedmd.com/quickstart.html)
+
+## SLURM
+
+Slurm is a job scheduler, which means its job is to manage all the jobs running on the servers. It handles allocating resources to individual tasks, queueing up submitted tasks and starting tasks when resources are available. Please check out the brief [documentation](https://github.com/si-medbif/hpc-pipelines/blob/main/documents/slurm.md) to get started or go to the [SLURM](https://slurm.schedmd.com/) main page for the complete documentation.
 
 ## NVIDIA CLARA PARABRICKS
 
@@ -11,11 +25,6 @@ The GPU software used in this project is from NVIDIA and is called CLARA PARABRI
 The pipelines for calling germline and somatic variants are further described via the links below.
 
 *Note:* All scripts and documentation was created with Parabricks version 3.6. The current Parabricks version on the server is 3.7 so there might be minor differences.
-
-## SLURM
-
-The MU-AI Center HPC cluster is using job schedulers to manage the jobs running on the servers. This project will focus on using the SLURM job scheduler. Please check out the brief [documentation](https://github.com/si-medbif/hpc-pipelines/blob/main/documents/slurm.md) to get started or go to the [SLURM](https://slurm.schedmd.com/) main page for the complete documentation.
-
 
 ## Getting started
 
