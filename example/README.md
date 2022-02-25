@@ -11,8 +11,9 @@ The provided configuration file can be used as input to run the full pipeline, j
 
 Total runtimes using 4 GPU, 32 CPU, 256gb RAM:
 ```
-WES = 19 m
-WGS = 
+WES             = 19 m (VCF)
+WGS             = 
+WGS, Tumor only = 45 m (VCF) 20+m (filtered VCF)
 ```
 
 
@@ -27,9 +28,8 @@ WES_EA_N_1_R2.fastq.gz	4.3G
 
 WGS:
 ```
-WGS_EA_T_1_R1.fastq.gz	G
-WGS_EA_T_1_R2.fastq.gz	G
-WGS_EA_N_1_R1.fastq.gz	G
-WGS_EA_N_1_R2.fastq.gz	G
-`
+WGS_EA_T_1_R1.fastq.gz	39G
+WGS_EA_T_1_R2.fastq.gz	41G
+WGS_EA_N_1_R1.fastq.gz	36G
+WGS_EA_N_1_R2.fastq.gz	37G
 ```
