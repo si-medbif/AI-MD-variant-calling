@@ -58,7 +58,6 @@ run_lofreq.sh config2.txt
 ```
 run_sv_strelkamanta.sh config2.txt
 ```
-Question:  are all these mutect2, somiatcsniper lofreq strelkamanta similar in that they all give short indels + snv somatic variants?
 
 ### Configuration2 file:
 
