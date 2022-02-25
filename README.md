@@ -14,7 +14,9 @@ The cluster operates two job schedulers to manage the workloads:
 * [Kubernetes](https://kubernetes.io/docs/tutorials/)
 * [Slurm](https://slurm.schedmd.com/quickstart.html)
 
-## SLURM
+We use SLURM primarily for Clara Parabrick related jobs on this repository. 
+
+### SLURM
 
 Slurm is a job scheduler, which means its job is to manage all the jobs running on the servers. It handles allocating resources to individual tasks, queueing up submitted tasks and starting tasks when resources are available. Please check out the brief [documentation](https://github.com/si-medbif/hpc-pipelines/blob/main/documents/slurm.md) to get started or go to the [SLURM](https://slurm.schedmd.com/) main page for the complete documentation.
 
