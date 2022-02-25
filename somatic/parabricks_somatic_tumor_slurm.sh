@@ -11,13 +11,13 @@
 #SBATCH --export=ALL        # Pass the env var
 #SBATCH --partition=batch       # Req specific partition    # default: batch
 #SBATCH --gres=gpu:4                  # Number of GPUs requested  # default: none (0) --gres=gpu:3g.20gb:2
-#SBATCH --mem=256gb                    # Memory size requested   # default: 4gb
+#SBATCH --mem=384gb                    # Memory size requested   # default: 4gb
 #SBATCH --cpus-per-task=32             # Number of CPUs per task   # default: 1 CPU per task 
 #SBATCH --time=8:00:00               # Time limit hrs:min:sec   # default: 01:00:00 (+1 hours of extra overtime limit) 
 
 # Parabricks software and reference resources
 export PB_HOME=/shared/software/software/parabricks-ampere
-export PATH=$PB_PATH:$PATH
+export PATH=$PB_HOME:$PATH
 export REF=/shared/dataset/parabricks_sample/Ref
 
 # User-input
