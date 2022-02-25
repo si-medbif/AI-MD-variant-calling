@@ -51,6 +51,11 @@ After generating the tumor and normal BAM files, there are several somatic varia
 run_mutect2.sh config2.txt
 run_somaticsniper.sh config2.txt
 run_lofreq.sh config2.txt
+```
+
+## Structural variant calling
+
+```
 run_sv_strelkamanta.sh config2.txt
 ```
 Question:  are all these mutect2, somiatcsniper lofreq strelkamanta similar in that they all give short indels + snv somatic variants?
@@ -70,7 +75,7 @@ This is a text file with comma separated columns:
 
 ## Notes:
   * Mutect2
-    * VCF files have to be filtered using filtermutectcall.
+    * VCF files have to be filtered using filtermutectcall. [Question: do you have the script for this too?](Please provide the link)
 
 
 # Example run-times
