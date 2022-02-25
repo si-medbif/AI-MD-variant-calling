@@ -13,7 +13,7 @@ Total runtimes using 4 GPU, 32 CPU, 256gb RAM:
 ```
 WES             = 19 m (VCF)
 WGS             = 
-WGS, Tumor only = 45 m (VCF) 20+m (filtered VCF)
+WGS, Tumor only = 45 m (to VCF) + 44 m (to filtered VCF)
 ```
 
 
