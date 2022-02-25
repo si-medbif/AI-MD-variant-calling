@@ -4,7 +4,7 @@
 
 The following scripts are ready for use depending on which analysis is required
 
-| Task | Slurm-script | Helper-script |
+| Task | Main script | Helper script |
 | --- | --- | --- |
 | Full | parabricks_somatic_slurm.sh | run_full_somatic.sh |
 | Full Tumor-only | parabricks_somatic_tumor_slurm.sh | run_full_somatic_tumor.sh |
@@ -13,19 +13,19 @@ The following scripts are ready for use depending on which analysis is required
 | LoFreq | parabricks_lofreq_slurm.sh | run_lofreq.sh |
 | Strelka | parabricks_strelkamanta_slurm.sh | run_sv_strelkamanta.sh |
 
-The slurm scripts contains reasonable default settings for the [SLURM](https://github.com/si-medbif/hpc-pipelines/blob/main/documents/slurm.md) parameters, as well as the Parabricks command line. Information about the input files and folder locations have to be provided on the command line.
+The main scripts contain reasonable default settings for the [slurm](https://github.com/si-medbif/hpc-pipelines/blob/main/documents/slurm.md) parameters, as well as the Parabricks command line. Information about the input files and folder locations have to be either provided on the command line or edited into the script file..
 
-Alternatively, the helper scripts will accept a configuration file as input where all the details about the samples to be run can be provided as a comma separated text file. The scripts will read the information of one sample at the time and call the appropriate sclurm script.
+An alternative way of running the main scripts is by using the helper scripts. The difference is that here the input is a configuration file with all the details about the samples to be run. The configuration file can also contain information about several samples, each line being a different sample.
 
 ## Full pipeline from FASTQ to VCF:
 ```
-run_full_somatic.sh config1.txt
-run_full_somatic_tumor.sh config1.txt
+run_full_somatic.sh config1.txt        # Matched Tumor-Normal
+run_full_somatic_tumor.sh config1.txt  # Tumor only
 ```
 
   The main scripts to run the whole analysis from FASTQ to VCF. It can be run both with a set of matched tumor-normal FASTQ files, or with only a tumor FASTQ file. The config-file lists information for one sample per line with a format as described below. In this way several samples can be queued up for analysis.
 
-The main somatic pipeline does not (yet) filter the variant calls, this step has been added using a singluarity image of GATK v4.0.12.0 to run the FilterMutectCalls process.
+The main somatic pipeline does not (yet) filter the variant calls, this step has been added using a singluarity image of GATK to run the FilterMutectCalls process.
 
 ### Configuration1 file
 
@@ -45,7 +45,7 @@ This is a text file with comma separated columns:
 ## Variant calling
 After generating the tumor and normal BAM files, there are several somatic variant callers available
 
-## Only somatic variant calling
+## Somatic variant calling
 ```
 run_mutect2.sh config2.txt
 run_somaticsniper.sh config2.txt
@@ -53,7 +53,7 @@ run_lofreq.sh config2.txt
 run_sv_strelkamanta.sh config2.txt
 ```
 
-### Configuration file 2:
+### Configuration2 file:
 
 This is a text file with comma separated columns:
 ```
@@ -68,8 +68,6 @@ This is a text file with comma separated columns:
 ## Notes:
   * Mutect2
     * VCF files have to be filtered using filtermutectcall.
-    * GATK versions after 4.1.0.0 requires a "Mutect stats table" generated from Mutect2 which is not present here.
-    * The last GATK version before 4.1 is 4.0.12.0
 
 
 # Example run-times
