@@ -4,10 +4,15 @@
 
 The following scripts are ready for use depending on which analysis is required
 
+Full pipeline
 | Task | Main script | Helper script |
 | --- | --- | --- |
 | Full | [parabricks_somatic_slurm.sh](./parabricks_somatic_slurm.sh) | [run_full_somatic.sh](./run_full_somatic.sh) |
 | Full Tumor-only | [parabricks_somatic_tumor_slurm.sh](./parabricks_somatic_tumor_slurm.sh) | [run_full_somatic_tumor.sh](./run_full_somatic_tumor.sh) |
+
+Variant calling
+| Task | Main script | Helper script |
+| --- | --- | --- |
 | Mutect2 | [parabricks_mutect2_slurm.sh](./parabricks_mutect2_slurm.sh) | [run_mutect2.sh](./run_mutect2.sh) |
 | SomaticSniper | [parabricks_somaticsniper_slurm.sh](./parabricks_somaticsniper_slurm.sh) | [run_somaticsniper.sh](./run_somaticsniper.sh) |
 | LoFreq | [parabricks_lofreq_slurm.sh](./parabricks_lofreq_slurm.sh) | [run_lofreq.sh](./run_lofreq.sh) |
@@ -73,11 +78,11 @@ This is a text file with comma separated columns:
 5. The name for the normal sample
 6. The normal bam file
 ```
-- [Example config file 2](../config1_WES_example.txt)
+- [Example config file 2](../config2_WES_example.txt)
 
 ## Notes:
   * Mutect2
-    * VCF files have to be filtered using filtermutectcall. [Question: do you have the script for this too?](Please provide the link)
+    * VCF files have to be filtered using the FilterMutectCall from GATK [filter_m2_singularity.sh](https://github.com/si-medbif/hpc-pipelines/blob/main/somatic/filter_m2_singularity.sh).
 
 
 # Example run-times
