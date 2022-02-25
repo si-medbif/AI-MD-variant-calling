@@ -41,7 +41,7 @@ This is a text file with comma separated columns:
 8. The 1st FASTQ file for the normal sample
 9. The 2nd FASTQ file for the normal sample
 ```
-- Example file](../config1_WES_example.txt)
+- [Example config file 1](../config1_WES_example.txt)
 
 ## Variant calling
 After generating the tumor and normal BAM files, there are several somatic variant callers available
@@ -66,6 +66,7 @@ This is a text file with comma separated columns:
 5. The name for the normal sample
 6. The normal bam file
 ```
+- [Example config file 2](../config1_WES_example.txt)
 
 ## Notes:
   * Mutect2
