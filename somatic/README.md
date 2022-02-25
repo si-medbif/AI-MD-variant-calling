@@ -41,6 +41,7 @@ This is a text file with comma separated columns:
 8. The 1st FASTQ file for the normal sample
 9. The 2nd FASTQ file for the normal sample
 ```
+- Example file](../config1_WES_example.txt)
 
 ## Variant calling
 After generating the tumor and normal BAM files, there are several somatic variant callers available
@@ -52,6 +53,7 @@ run_somaticsniper.sh config2.txt
 run_lofreq.sh config2.txt
 run_sv_strelkamanta.sh config2.txt
 ```
+Question:  are all these mutect2, somiatcsniper lofreq strelkamanta similar in that they all give short indels + snv somatic variants?
 
 ### Configuration2 file:
 
