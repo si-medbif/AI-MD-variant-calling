@@ -52,5 +52,6 @@ Available callers for somatic variants are currently:
 | Strelka      | V            | X          | V   | V     | V    | X               |
 
 - read more at [somatic/readme.md](somatic/readme.md)
+
 ## RNA variant detection
 
