@@ -40,9 +40,9 @@ The main somatic pipeline does not (yet) filter the variant calls, this step has
 
 This is a text file with comma separated columns:
 ```
-1. The location of the FASTQ files
-2. The location to output the generated BAM files
-3. The location to output the generated VCF files
+1. The folder containing the FASTQ files
+2. The folder where the generated BAM files should be stored
+3. The folder where the generated VCF files should be stored
 4. The name for the tumor sample
 5. The 1st FASTQ file for the tumor sample
 6. The 2nd FASTQ file for the tumor sample
@@ -60,20 +60,15 @@ After generating the tumor and normal BAM files, there are several somatic varia
 run_mutect2.sh config2.txt
 run_somaticsniper.sh config2.txt
 run_lofreq.sh config2.txt
-```
-
-## Structural variant calling
-
-```
-run_sv_strelkamanta.sh config2.txt
+run_strelkamanta.sh config2.txt
 ```
 
 ### Configuration2 file:
 
 This is a text file with comma separated columns:
 ```
-1. The location to output the generated BAM files
-2. The location to output the generated VCF files
+1. The folder containing the input BAM files
+2. The folder where the generated VCF files should be stored
 3. The name for the tumor sample
 4. The tumor BAM file
 5. The name for the normal sample
@@ -82,8 +77,7 @@ This is a text file with comma separated columns:
 - [Example config file 2](https://github.com/si-medbif/hpc-pipelines/blob/main/example/config2_WES_example.txt)
 
 ## Notes:
-  * Mutect2
-    * VCF files have to be filtered using the FilterMutectCall from GATK [filter_m2_singularity.sh](https://github.com/si-medbif/hpc-pipelines/blob/main/somatic/filter_m2_singularity.sh).
+  Parabricks does not currently filter the variants called with Mutect2. We have added an extra step to the pipeline, running the FilterMutectCall from GATK [filter_m2_singularity.sh](https://github.com/si-medbif/hpc-pipelines/blob/main/somatic/filter_m2_singularity.sh) as a final step in the pipeline.
 
 
 # Example run-times
