@@ -16,7 +16,7 @@ Variant calling
 | Mutect2 | [parabricks_mutect2_slurm.sh](./parabricks_mutect2_slurm.sh) | [run_mutect2.sh](./run_mutect2.sh) |
 | SomaticSniper | [parabricks_somaticsniper_slurm.sh](./parabricks_somaticsniper_slurm.sh) | [run_somaticsniper.sh](./run_somaticsniper.sh) |
 | LoFreq | [parabricks_lofreq_slurm.sh](./parabricks_lofreq_slurm.sh) | [run_lofreq.sh](./run_lofreq.sh) |
-| Strelka | [parabricks_strelkamanta_slurm.sh](./parabricks_strelkamanta_slurm.sh) | [run_sv_strelkamanta.sh](./run_sv_strelkamanta.sh) |
+| Strelka | [parabricks_strelkamanta_slurm.sh](./parabricks_strelkamanta_slurm.sh) | [run_strelkamanta.sh](./run_sv_strelkamanta.sh) |
 
 **Use Full version** if you start with fastq
 **Use Mutect2 version** if you already have BAM
@@ -49,7 +49,7 @@ This is a text file with comma separated columns:
 8. The 1st FASTQ file for the normal sample
 9. The 2nd FASTQ file for the normal sample
 ```
-- [Example config file 1](../config1_WES_example.txt)
+- [Example config file 1](https://github.com/si-medbif/hpc-pipelines/blob/main/example/config1_WES_example.txt)
 
 ## Variant calling
 After generating the tumor and normal BAM files, there are several somatic variant callers available
@@ -78,7 +78,7 @@ This is a text file with comma separated columns:
 5. The name for the normal sample
 6. The normal bam file
 ```
-- [Example config file 2](../config2_WES_example.txt)
+- [Example config file 2](https://github.com/si-medbif/hpc-pipelines/blob/main/example/config2_WES_example.txt)
 
 ## Notes:
   * Mutect2
