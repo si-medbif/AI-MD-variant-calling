@@ -88,13 +88,10 @@ This is a text file with comma separated columns:
 # Example run-times
 
 ## Test data:
-* WES
-  * Normal : WES_EA_N_1
-  * Tumor : WES_EA_T_1
-* WGS
-  * Normal : 
-  * Tumor :
+
+The runtime has been tested on a publically available [WES dataset](https://github.com/si-medbif/hpc-pipelines/example/README.md) and on a private WGS dataset. Both datasets contained a tumor and a matched normal sample.
 
 ## Full run times, FASTQ to VCF, using the main pipeline with BWA and the GATK software packages:
-    * WES  19m                       
-    
+    * WES:                 19m
+    * WGS:              1h 32m (filtered VCF)
+    * WGS, tumor only:     45m (VCF) + 44m (filtered VCF) 

@@ -26,14 +26,14 @@ The GPU software used in this project is from NVIDIA and is called CLARA PARABRI
 
 The pipelines for calling germline and somatic variants are further described via the links below.
 
-*Note:* All scripts and documentation was created with Parabricks version 3.6. The current Parabricks version on the server is 3.7 so there might be minor differences.
-
 ## Getting started
 
 Download this repository to gain access to the wrapper scripts used to submit jobs to SLURM.
 ```bash
 git clone https://github.com/si-medbif/hpc-pipelines.git
 ```
+
+A test data set and a tutorial for a complete analysis is [provided](https://github.com/si-medbif/hpc-pipelines/example/tutorial.md) in the [example](https://github.com/si-medbif/hpc-pipelines/example) section.
 
 ## Germline variant detection
 
