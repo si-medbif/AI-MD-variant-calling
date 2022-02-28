@@ -16,8 +16,11 @@
 #SBATCH --time=3:00:00               # Time limit hrs:min:sec   # default: 01:00:00 (+1 hours of extra overtime limit) 
 
 # Parabricks software and reference resources
-export PB_HOME=/shared/software/software/parabricks-ampere
-export PATH=$PB_HOME:$PATH
+export MODULEPATH=/shared/software/modules:$MODULEPATH
+module load parabricks/3.7.0-1.ampere
+
+#export PB_HOME=/shared/software/software/parabricks-ampere
+#export PATH=$PB_HOME:$PATH
 export REF=/shared/dataset/parabricks_sample/Ref
 # User-input
 BAMDATA=$1
@@ -36,5 +39,5 @@ pbrun mutectcaller \
 	--in-normal-bam ${BAMDATA}/${NORMALBAM}.bam \
 	--normal-name ${NORMAL} \
 	--in-normal-recal-file ${BAMDATA}/${NORMALBAM}.recal.txt \
-	--out-vcf  ${VCFDATA}/${TUMOR}_m2.vcf
+	--out-vcf  ${VCFDATA}/${TUMOR}_m2.2.vcf
 

@@ -16,8 +16,11 @@
 #SBATCH --time=8:00:00               # Time limit hrs:min:sec   # default: 01:00:00 (+1 hours of extra overtime limit) 
 
 # Parabricks software and reference resources
-export PB_HOME=/shared/software/software/parabricks-ampere
-export PATH=$PB_HOME:$PATH
+export MODULEPATH=/shared/software/modules:$MODULEPATH
+module load parabricks/3.7.0-1.ampere
+
+#export PB_HOME=/shared/software/software/parabricks-ampere
+#export PATH=$PB_HOME:$PATH
 export REF=/shared/dataset/parabricks_sample/Ref
 
 # User-input
