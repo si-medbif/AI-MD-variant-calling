@@ -23,9 +23,11 @@ The GPU software used in this project is from NVIDIA and is called CLARA PARABRI
 
 ## Getting started
 
-Download this repository to gain access to the wrapper scripts used to submit jobs to SLURM.
+Download this repository to add it to the PATH to gain access to the wrapper scripts used to submit jobs to SLURM.
 ```bash
 git clone https://github.com/si-medbif/hpc-pipelines.git
+export PATH="${PWD}/hpc-pipelines/somatic":$PATH
+export PATH="${PWD}/hpc-pipelines/support":$PATH
 ```
 
 A test data set and a [tutorial](https://github.com/si-medbif/hpc-pipelines/example/tutorial.md) for a complete analysis is provided in the [example](https://github.com/si-medbif/hpc-pipelines/example) section.
