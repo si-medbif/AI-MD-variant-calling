@@ -2,9 +2,9 @@
 
 ## Pipelines:
 
-### Somatic variant call
+### Somatic variant calling
 
-The [default](https://docs.nvidia.com/clara/parabricks/3.7.0/Documentation/ToolDocs/man_somatic.html#man-somatic) somatic variant call pipeline is reporting to generate the same results as a comparable pipeline with the following software:
+The [default](https://docs.nvidia.com/clara/parabricks/3.7.0/Documentation/ToolDocs/man_somatic.html#man-somatic) somatic variant call pipeline is designed to generate the same results as a comparable pipeline with the following software:
 
 ## Individual software 
 
@@ -21,3 +21,7 @@ This is the list of comparable CPU-based [software tools](https://docs.nvidia.co
 
 
 To read the full documentation of the original software, click on the software name.
+
+Illustration of the Parabricks variant calling process:
+
+![alt text](https://www.nvidia.com/content/dam/en-zz/Solutions/healthcare/clara-parabricks/nvidia-parabricks-diagram-new@2x.png "Clara Parabricks")
