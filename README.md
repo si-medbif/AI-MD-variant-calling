@@ -4,7 +4,7 @@
 
 This repository contains scripts and information for doing variant detection on a HPC cluster with GPU support. Input data can be either whole genome sequence (WGS) or whole exome sequence (WES). Currently there is a section on somatic variant detection. Germline and RNA variant detection will be added at a later date.
 
-## Mahidol HPC-AI Cluster
+## [Mahidol HPC-AI Cluster](https://github.com/si-medbif/hpc-pipelines/blob/main/documents/hpc-server.md)
 
 Currently, the following GPU resources are available to use:
 * 1 x DGX A100 Server with 8 x NVIDIA A100-80GB GPUs
