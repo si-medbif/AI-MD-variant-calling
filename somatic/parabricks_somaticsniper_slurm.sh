@@ -17,13 +17,8 @@
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH
 module load parabricks/3.7.0-1.ampere
-
-#export PB_HOME=/shared/software/software/parabricks-ampere
-#export PATH=$PB_HOME:$PATH
 export REF=/shared/dataset/parabricks_sample/Ref
-
 # User input
-
 BAMDATA=$1
 VCFDATA=$2
 TUMOR=$3

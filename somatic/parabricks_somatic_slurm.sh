@@ -19,11 +19,7 @@
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH
 module load parabricks/3.7.0-1.ampere
-
-#export PB_HOME=/shared/software/software/parabricks-ampere
-#export PATH=$PB_HOME:$PATH
 export REF=/shared/dataset/parabricks_sample/Ref
-
 # User-input
 FASTQDATA=$1
 BAMDATA=$2
@@ -48,4 +44,4 @@ pbrun somatic \
 	--out-normal-recal-file ${BAMDATA}/${NORMAL}.recal.txt \
 	--out-vcf  ${VCFDATA}/${TUMOR}_m2.vcf
 
-./filter_m2_singularity.sh ${VCFDATA} ${TUMOR}
+filter_m2_singularity.sh ${VCFDATA} ${TUMOR}

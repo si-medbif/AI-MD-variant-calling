@@ -10,16 +10,15 @@ Currently, the following GPU resources are available to use:
 * 1 x DGX A100 Server with 8 x NVIDIA A100-80GB GPUs
 * 2 x DGX A100 Server with 8 x NVIDIA A100-40GB GPUs
 
-The cluster operates two job schedulers to manage the workloads:
+Note that the job submissions on the cluster is handled by one of two job schedulers:
 * [Kubernetes](https://kubernetes.io/docs/tutorials/)
 * [Slurm](https://slurm.schedmd.com/quickstart.html)
 
-A job scheduler handles everything related to submitted tasks: allocating resources, managing the queue and starting tasks when resources are available, logging and tracking tasks that are either waiting, running or paused. 
-We primarily use SLURM for Clara Parabricks related jobs on this repository. Please check out the brief [documentation](https://github.com/si-medbif/hpc-pipelines/blob/main/documents/slurm.md) to get started or go to the [SLURM](https://slurm.schedmd.com/) main page for the complete documentation.
+Anyone wanting to submit jobs manually will have to use either of these systems. We have provided a short introduction for [slurm](https://github.com/si-medbif/hpc-pipelines/documents/slurm.md).
 
 ## NVIDIA CLARA PARABRICKS
 
-The GPU software used in this project is from NVIDIA and is called CLARA PARABRICKS Pipelines. The pipeline cover analysis from read data (FASTQ-files) to called variants (VCF-files). A short introduction is provided [here](https://github.com/si-medbif/hpc-pipelines/blob/main/documents/parabricks.md#nvidia-clara-parabricks). For the full documentation including any additional options and updates, please visit [NVIDIA CLARA PARABRICKS](https://docs.nvidia.com/clara/parabricks/3.7.0/index.html)
+The GPU software used in this project is from NVIDIA and is called CLARA PARABRICKS Pipelines. The pipelines cover analysis from read data (FASTQ-files) to called variants (VCF-files). We have provided a [short introduction](https://github.com/si-medbif/hpc-pipelines/blob/main/documents/parabricks.md#nvidia-clara-parabricks). For the full documentation including any additional options and updates, please visit [NVIDIA CLARA PARABRICKS](https://docs.nvidia.com/clara/parabricks/3.7.0/index.html)
 
 ## Getting started
 
@@ -50,7 +49,7 @@ Available callers for somatic variants are currently:
 | Manta        | V            | X          | X   | X     | V    | X               |
 | Strelka      | V            | X          | V   | V     | V    | X               |
 
-- read more in the section for [somatic varinat calling](https://github.com/si-medbif/hpc-pipelines/tree/main/somatic#somatic-variant-detection)
+- read more in the section for [somatic variant calling](https://github.com/si-medbif/hpc-pipelines/tree/main/somatic#somatic-variant-detection)
 
 ## RNA variant detection
 

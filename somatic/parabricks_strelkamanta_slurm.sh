@@ -16,13 +16,10 @@
 
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH
-#module load parabricks/3.7.0-1.ampere
+#module load parabricks/3.7.0-1.ampere # There seems to be a bug in the 3.7.0-1 version.
 module load parabricks/3.6.1-1-ampere
-
-#export PB_HOME=/shared/software/software/parabricks-ampere
-#export PATH=$PB_HOME:$PATH
 export REF=/shared/dataset/parabricks_sample/Ref
-# Fastq-files
+# User input:
 BAMDATA=$1
 VCFDATA=$2
 TUMOR=$3
