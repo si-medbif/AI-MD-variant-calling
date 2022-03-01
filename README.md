@@ -47,7 +47,7 @@ Available callers for somatic variants are currently:
 | SomatcSniper | V            | X          | V   | V     | X    | X               |
 | LoFreq       | V            | X          | V   | V     | X    | V               |
 | Manta        | V            | X          | X   | X     | V    | X               |
-| Strelka      | V            | X          | V   | V     | V    | X               |
+| Strelka      | V            | X          | V   | V     | X    | X               |
 
 - read more in the section for [somatic variant calling](https://github.com/si-medbif/hpc-pipelines/tree/main/somatic#somatic-variant-detection)
 
