@@ -12,8 +12,6 @@ do
 	bam="${arr[0]}"
 	vcf="${arr[1]}"
 	tumor="${arr[2]}"
-	tumorbam="${arr[3]}"
-	normal="${arr[4]}"
-	normalbam="${arr[5]}"
-	sbatch parabricks_somaticsniper_slurm.sh $bam $vcf $tumor $tumorbam $normal $normalbam	
+	normal="${arr[3]}"
+	sbatch parabricks_somaticsniper_slurm.sh $bam $vcf $tumor $normal
 done

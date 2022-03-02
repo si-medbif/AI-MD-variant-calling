@@ -70,9 +70,7 @@ This is a text file with comma separated columns:
 1. The folder containing the input BAM files
 2. The folder where the generated VCF files should be stored
 3. The name for the tumor sample
-4. The tumor BAM file
-5. The name for the normal sample
-6. The normal bam file
+4. The name for the normal sample
 ```
 - [Example config file 2](https://github.com/si-medbif/hpc-pipelines/blob/main/example/config2_WES_example.txt)
 

@@ -23,13 +23,11 @@ export REF=/shared/dataset/parabricks_sample/Ref
 BAMDATA=$1
 VCFDATA=$2
 TUMOR=$3
-TUMORBAM=$4
-NORMAL=$5
-NORMALBAM=$6
+NORMAL=$4
 
 pbrun strelka_workflow \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 	--out-prefix ${VCFDATA}/strelka_manta_${TUMOR} \
 	--num-threads 32 \
-	--in-tumor-bam ${BAMDATA}/${TUMORBAM}.bam  \
-	--in-normal-bam ${BAMDATA}/${NORMALBAM}.bam \
+	--in-tumor-bam ${BAMDATA}/${TUMOR}.bam  \
+	--in-normal-bam ${BAMDATA}/${NORMAL}.bam \

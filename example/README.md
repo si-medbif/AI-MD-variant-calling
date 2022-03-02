@@ -6,6 +6,6 @@ The data was downloaded as BAM files and converted to FASTQ using the Parabricks
 
 The provided configuration file can be used as input to run the full pipeline, just change the location you want to create the BAM files and the VCF files.
 ```bash
-./run_full_somatic.sh ../example/config1_WES_example.txt
+run_full_somatic.sh config1_WES_example.txt
 ```
 

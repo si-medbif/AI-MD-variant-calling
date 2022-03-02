@@ -22,15 +22,13 @@ export REF=/shared/dataset/parabricks_sample/Ref
 BAMDATA=$1
 VCFDATA=$2
 TUMOR=$3
-TUMORBAM=$4
-NORMAL=$5
-NORMALBAM=$6
+NORMAL=$4
 
 pbrun somaticsniper \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 	--out-file ${VCFDATA}/${TUMOR}_somaticsniper.vcf \
-	--in-tumor-bam ${BAMDATA}/${TUMORBAM}.bam  \
-	--in-normal-bam ${BAMDATA}/${NORMALBAM}.bam \
+	--in-tumor-bam ${BAMDATA}/${TUMOR}.bam  \
+	--in-normal-bam ${BAMDATA}/${NORMAL}.bam \
 	--out-format vcf \
 	--min-mapq 30 \
 	--num-threads 8

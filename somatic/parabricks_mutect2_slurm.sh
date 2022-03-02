@@ -23,19 +23,17 @@ export REF=/shared/dataset/parabricks_sample/Ref
 BAMDATA=$1
 VCFDATA=$2
 TUMOR=$3
-TUMORBAM=$4
-NORMAL=$5
-NORMALBAM=$6
+NORMAL=$4
 
 pbrun mutectcaller \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
-	--in-tumor-bam ${BAMDATA}/${TUMORBAM}.bam  \
+	--in-tumor-bam ${BAMDATA}/${TUMOR}.bam  \
 	--num-gpus 2 \
 	--tumor-name ${TUMOR} \
-	--in-tumor-recal-file ${BAMDATA}/${TUMORBAM}.recal.txt \
-	--in-normal-bam ${BAMDATA}/${NORMALBAM}.bam \
+	--in-tumor-recal-file ${BAMDATA}/${TUMOR}.recal.txt \
+	--in-normal-bam ${BAMDATA}/${NORMAL}.bam \
 	--normal-name ${NORMAL} \
-	--in-normal-recal-file ${BAMDATA}/${NORMALBAM}.recal.txt \
+	--in-normal-recal-file ${BAMDATA}/${NORMAL}.recal.txt \
 	--out-vcf  ${VCFDATA}/${TUMOR}_m2.2.vcf
 
 filter_m2_singularity.sh ${VCFDATA} ${TUMOR}

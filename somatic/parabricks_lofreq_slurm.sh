@@ -23,16 +23,14 @@ export REF=/shared/dataset/parabricks_sample/Ref
 BAMDATA=$1
 VCFDATA=$2
 TUMOR=$3
-TUMORBAM=$4
-NORMAL=$5
-NORMALBAM=$6
+NORMAL=$4
 
 pbrun lofreq \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 	--in-dbsnp-file /shared/example_data/dbsnp/dbsnp_146.hg38.vcf.gz \
 	--output-dir ${VCFDATA}/${TUMOR}_lofreq \
-	--in-tumor-bam ${BAMDATA}/${TUMORBAM}.bam  \
-	--in-normal-bam ${BAMDATA}/${NORMALBAM}.bam \
+	--in-tumor-bam ${BAMDATA}/${TUMOR}.bam  \
+	--in-normal-bam ${BAMDATA}/${NORMAL}.bam \
 	--num-threads 4 \
 	--num-gpus 2
 
