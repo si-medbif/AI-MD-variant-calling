@@ -46,6 +46,7 @@ Available callers for somatic variants are currently:
 | Mutect2      | V            | V          | V   | V     | X    | V               |
 | SomatcSniper | V            | X          | V   | V     | X    | X               |
 | LoFreq       | V            | X          | V   | V     | X    | V               |
+| MuSE         | V            | X          | V   | X     | X    | X               |
 | Manta        | V            | X          | X   | X     | V    | X               |
 | Strelka      | V            | X          | V   | V     | X    | X               |
 

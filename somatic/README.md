@@ -18,8 +18,11 @@ The following scripts are ready for use depending on which analysis is required
 | Mutect2 | [parabricks_mutect2_slurm.sh](./parabricks_mutect2_slurm.sh) | [run_mutect2.sh](./run_mutect2.sh) |
 | SomaticSniper | [parabricks_somaticsniper_slurm.sh](./parabricks_somaticsniper_slurm.sh) | [run_somaticsniper.sh](./run_somaticsniper.sh) |
 | LoFreq | [parabricks_lofreq_slurm.sh](./parabricks_lofreq_slurm.sh) | [run_lofreq.sh](./run_lofreq.sh) |
-| Strelka & Manta | [parabricks_strelkamanta_slurm.sh](./parabricks_strelkamanta_slurm.sh) | [run_strelkamanta.sh](./run_sv_strelkamanta.sh) |
+| MuSE | [parabricks_muse_slurm.sh](./parabricks_muse_slurm.sh) | [run_muse_WGS.sh](./run_muse_WGS.sh)/[run_muse_WES.sh](./run_muse_WES.sh) |
 
+| Manta | [parabricks_manta_slurm.sh](./parabricks_manta_slurm.sh) | [run_manta.sh](./run_manta.sh) |
+| Strelka | [parabricks_strelka_slurm.sh](./parabricks_strelka_slurm.sh) | [run_strelka.sh](./run_strelka.sh) |
+| Strelka & Manta | [parabricks_strelkamanta_slurm.sh](./parabricks_strelkamanta_slurm.sh) | [run_strelkamanta.sh](./run_strelkamanta.sh) |
 **Use Mutect2 version** if you already have BAM
 
 The main scripts contain reasonable default settings for the [slurm](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/documents/slurm.md) parameters, as well as the Parabricks command line. Information about the input files and folder locations have to be either provided on the command line or edited into the script file.
@@ -60,6 +63,8 @@ After generating the tumor and normal BAM files, there are several somatic varia
 run_mutect2.sh config2.txt
 run_somaticsniper.sh config2.txt
 run_lofreq.sh config2.txt
+run_muse_WGS.sh config2.txt
+run_muse_WGS.sh config2.txt
 run_strelkamanta.sh config2.txt
 ```
 
