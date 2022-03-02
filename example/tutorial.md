@@ -8,9 +8,9 @@ cd project
 
 Download this github project, and add the scripts folder to the PATH.
 ```bash
-git clone https://github.com/si-medbif/hpc-pipelines.git
-export PATH="${PWD}/hpc-pipelines/somatic":$PATH
-export PATH="${PWD}/hpc-pipelines/support":$PATH
+git clone https://github.com/si-medbif/AI-MD-variant-calling.git
+export PATH="${PWD}/AI-MD-variant-calling/somatic":$PATH
+export PATH="${PWD}/AI-MD-variant-calling/support":$PATH
 ```
 
 Create the configuration file with sample details (or edit the file in a text editor)

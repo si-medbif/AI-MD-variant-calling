@@ -22,7 +22,7 @@ The following scripts are ready for use depending on which analysis is required
 
 **Use Mutect2 version** if you already have BAM
 
-The main scripts contain reasonable default settings for the [slurm](https://github.com/si-medbif/hpc-pipelines/blob/main/documents/slurm.md) parameters, as well as the Parabricks command line. Information about the input files and folder locations have to be either provided on the command line or edited into the script file.
+The main scripts contain reasonable default settings for the [slurm](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/documents/slurm.md) parameters, as well as the Parabricks command line. Information about the input files and folder locations have to be either provided on the command line or edited into the script file.
 
 An alternative way of running the main scripts is by using the helper scripts. The difference is that here the input is a configuration file with all the details about the samples to be run. The configuration file can also contain information about several samples, each line being a different sample.
 
@@ -50,7 +50,7 @@ This is a text file with comma separated columns:
 8. The 1st FASTQ file for the normal sample
 9. The 2nd FASTQ file for the normal sample
 ```
-- [Example config file 1](https://github.com/si-medbif/hpc-pipelines/blob/main/example/config1_WES_example.txt)
+- [Example config file 1](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/config1_WES_example.txt)
 
 ## Variant calling
 After generating the tumor and normal BAM files, there are several somatic variant callers available
@@ -72,17 +72,17 @@ This is a text file with comma separated columns:
 3. The name for the tumor sample
 4. The name for the normal sample
 ```
-- [Example config file 2](https://github.com/si-medbif/hpc-pipelines/blob/main/example/config2_WES_example.txt)
+- [Example config file 2](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/config2_WES_example.txt)
 
 ## Notes:
-  Parabricks does not currently filter the variants called with Mutect2. We have added an extra step to the pipeline, running the FilterMutectCall from GATK [filter_m2_singularity.sh](https://github.com/si-medbif/hpc-pipelines/blob/main/somatic/filter_m2_singularity.sh) as a final step in the pipeline.
+  Parabricks does not currently filter the variants called with Mutect2. We have added an extra step to the pipeline, running the FilterMutectCall from GATK [filter_m2_singularity.sh](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/somatic/filter_m2_singularity.sh) as a final step in the pipeline.
 
 
 # Example run-times
 
 ## Test data:
 
-The runtime has been tested on a publically available [WES dataset](https://github.com/si-medbif/hpc-pipelines/example/README.md) and on a private WGS dataset. Both datasets contained a tumor and a matched normal sample.
+The runtime has been tested on a publically available [WES dataset](https://github.com/si-medbif/AI-MD-variant-calling/example/README.md) and on a private WGS dataset. Both datasets contained a tumor and a matched normal sample.
 
 Full run times, FASTQ to VCF, using the main pipeline with BWA and the GATK software packages:
 ```

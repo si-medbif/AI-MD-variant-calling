@@ -4,7 +4,7 @@
 
 This repository contains scripts and information for doing variant detection on a HPC cluster with GPU support. Input data can be either whole genome sequence (WGS) or whole exome sequence (WES). Currently there is a section on somatic variant detection. Germline and RNA variant detection will be added at a later date.
 
-## [Mahidol HPC-AI Cluster](https://github.com/si-medbif/hpc-pipelines/blob/main/documents/hpc-server.md)
+## [Mahidol HPC-AI Cluster](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/documents/hpc-server.md)
 
 Currently, the following GPU resources are available to use:
 * 1 x DGX A100 Server with 8 x NVIDIA A100-80GB GPUs
@@ -14,28 +14,28 @@ Note that the job submissions on the cluster is handled by one of two job schedu
 * [Kubernetes](https://kubernetes.io/docs/tutorials/)
 * [Slurm](https://slurm.schedmd.com/quickstart.html)
 
-Anyone wanting to submit jobs manually will have to use either of these systems. We have provided a short introduction for [slurm](https://github.com/si-medbif/hpc-pipelines/documents/slurm.md).
+Anyone wanting to submit jobs manually will have to use either of these systems. We have provided a short introduction for [slurm](https://github.com/si-medbif/AI-MD-variant-calling/documents/slurm.md).
 
 ## NVIDIA CLARA PARABRICKS
 
-The GPU software used in this project is from NVIDIA and is called CLARA PARABRICKS Pipelines. The pipelines cover analysis from read data (FASTQ-files) to called variants (VCF-files). We have provided a [short introduction](https://github.com/si-medbif/hpc-pipelines/blob/main/documents/parabricks.md#nvidia-clara-parabricks). For the full documentation including any additional options and updates, please visit [NVIDIA CLARA PARABRICKS](https://docs.nvidia.com/clara/parabricks/3.7.0/index.html)
+The GPU software used in this project is from NVIDIA and is called CLARA PARABRICKS Pipelines. The pipelines cover analysis from read data (FASTQ-files) to called variants (VCF-files). We have provided a [short introduction](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/documents/parabricks.md#nvidia-clara-parabricks). For the full documentation including any additional options and updates, please visit [NVIDIA CLARA PARABRICKS](https://docs.nvidia.com/clara/parabricks/3.7.0/index.html)
 
 ## Getting started
 
 Download this repository to add it to the PATH to gain access to the wrapper scripts used to submit jobs to SLURM.
 ```bash
-git clone https://github.com/si-medbif/hpc-pipelines.git
-export PATH="${PWD}/hpc-pipelines/somatic":$PATH
-export PATH="${PWD}/hpc-pipelines/support":$PATH
+git clone https://github.com/si-medbif/AI-MD-variant-calling.git
+export PATH="${PWD}/AI-MD-variant-calling/somatic":$PATH
+export PATH="${PWD}/AI-MD-variant-calling/support":$PATH
 ```
 
-A test data set and a [tutorial](https://github.com/si-medbif/hpc-pipelines/example/tutorial.md) for a complete analysis is provided in the [example](https://github.com/si-medbif/hpc-pipelines/example) section.
+A test data set and a [tutorial](https://github.com/si-medbif/AI-MD-variant-calling/example/tutorial.md) for a complete analysis is provided in the [example](https://github.com/si-medbif/AI-MD-variant-calling/example) section.
 
 ## Germline variant detection
 
 Coming soon ...
 
-## [Somatic variant detection](https://github.com/si-medbif/hpc-pipelines/tree/main/somatic#somatic-variant-detection)
+## [Somatic variant detection](https://github.com/si-medbif/AI-MD-variant-calling/tree/main/somatic#somatic-variant-detection)
 
 ParaBricks is using BWA for read mapping, and GATK for processing of BAM files.
 
@@ -49,7 +49,7 @@ Available callers for somatic variants are currently:
 | Manta        | V            | X          | X   | X     | V    | X               |
 | Strelka      | V            | X          | V   | V     | X    | X               |
 
-- read more in the section for [somatic variant calling](https://github.com/si-medbif/hpc-pipelines/tree/main/somatic#somatic-variant-detection)
+- read more in the section for [somatic variant calling](https://github.com/si-medbif/AI-MD-variant-calling/tree/main/somatic#somatic-variant-detection)
 
 ## RNA variant detection
 

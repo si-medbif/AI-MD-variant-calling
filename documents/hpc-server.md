@@ -8,7 +8,7 @@ The cluster operates two job schedulers to manage the workloads:
 
 A job scheduler handles everything related to submitted tasks: allocating resources, managing the queue and starting tasks when resources are available, logging and tracking tasks that are either waiting, running or paused.
 
-We primarily use SLURM for Clara Parabricks related jobs on this repository. Please check out the brief [documentation](https://github.com/si-medbif/hpc-pipelines/blob/main/documents/slurm.md) to get started or go to the [SLURM](https://slurm.schedmd.com/) main page for the complete documentation.
+We primarily use SLURM for Clara Parabricks related jobs on this repository. Please check out the brief [documentation](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/documents/slurm.md) to get started or go to the [SLURM](https://slurm.schedmd.com/) main page for the complete documentation.
 
 There is also a web-based user interface at [https://hpc.mahidol.ac.th/](https://hpc.mahidol.ac.th/) for job submissions. Instructions on how to use that interface will be added later.
 
