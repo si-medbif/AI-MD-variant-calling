@@ -18,6 +18,7 @@ This is the list of comparable CPU-based [software tools](https://docs.nvidia.co
 | [somaticsniper](https://gmt.genome.wustl.edu/packages/somatic-sniper/documentation.html) | Variant Call | 1.0.5.0 |
 | [manta](https://github.com/Illumina/manta#manta-structural-variant-caller) | Structural Variant Call | 1.6.0 |
 | [strelka](https://github.com/Illumina/strelka#strelka2-small-variant-caller) | Variant Call | 2.9.0 |
+| [MuSE](https://bioinformatics.mdanderson.org/public-software/muse/) | SNV Calls | 2.0 |
 
 
 To read the full documentation of the original software, click on the software name.
@@ -25,3 +26,13 @@ To read the full documentation of the original software, click on the software n
 Illustration of the Parabricks variant calling process:
 
 ![alt text](https://www.nvidia.com/content/dam/en-zz/Solutions/healthcare/clara-parabricks/nvidia-parabricks-diagram-new@2x.png "Clara Parabricks")
+
+
+
+### SomaticSniper
+
+SomaticSniper is typically run on BAM files that have neither been base quality recalibrated nor locally realigned around indels (such as with the GATK). Either of these preprocessing steps can be optionally performed before running SomaticSniper, but we have observed some decrease in sensitivity after base quality recalibration. (Larson, David E., et al. 2014)
+
+### MuSE
+
+The BAM files need to be processed by following the Genome Analysis Toolkit (GATK) Best Practices that include marking duplicates, realigning the paired tumor-normal BAMs jointly and recalibrating base quality scores. (https://bioinformatics.mdanderson.org/public-software/muse/)
