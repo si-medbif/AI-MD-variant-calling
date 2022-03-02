@@ -16,13 +16,13 @@ Note that the job submissions on the cluster is handled by one of two job schedu
 
 Anyone wanting to submit jobs manually will have to use either of these systems. We have provided a short introduction for [slurm](https://github.com/si-medbif/AI-MD-variant-calling/documents/slurm.md).
 
-## NVIDIA CLARA PARABRICKS
+## [NVIDIA CLARA PARABRICKS](https://docs.nvidia.com/clara/parabricks/3.7.0/index.html)
 
 The GPU software used in this project is from NVIDIA and is called CLARA PARABRICKS Pipelines. The pipelines cover analysis from read data (FASTQ-files) to called variants (VCF-files). We have provided a [short introduction](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/documents/parabricks.md#nvidia-clara-parabricks). For the full documentation including any additional options and updates, please visit [NVIDIA CLARA PARABRICKS](https://docs.nvidia.com/clara/parabricks/3.7.0/index.html)
 
-## Getting started
+## [Getting started](https://github.com/si-medbif/AI-MD-variant-calling/example/tutorial.md)
 
-Download this repository to add it to the PATH to gain access to the wrapper scripts used to submit jobs to SLURM.
+Download this repository and add it to the PATH to gain access to the wrapper scripts used to submit jobs to SLURM.
 ```bash
 git clone https://github.com/si-medbif/AI-MD-variant-calling.git
 export PATH="${PWD}/AI-MD-variant-calling/somatic":$PATH
