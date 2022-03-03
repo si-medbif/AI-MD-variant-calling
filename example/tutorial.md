@@ -33,15 +33,7 @@ run_collectmultiplemetrics.sh config/config3.txt
 
 The filtered VCF file will be in the VCF folder:
 ```bash
-ll vcf
+cd vcf
+ls
 ```
-
-Run the remaining variantcallers:
-```bash
-run_somaticsniper.sh config/config2.txt
-run_lofreq.sh config/config2.txt
-run_muse_WES.sh config/config2.txt
-run_sv_strelkamanta.sh config/config2.txt
-```
-
 
