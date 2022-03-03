@@ -37,9 +37,9 @@ Coming soon ...
 
 ## [Somatic variant detection](https://github.com/si-medbif/AI-MD-variant-calling/tree/main/somatic#somatic-variant-detection)
 
-ParaBricks is using BWA for read mapping, and GATK for processing of BAM files.
+The main ParaBricks pipeline is using BWA for read mapping, GATK for processing of BAM files and GATK-Mutect2 for variant calling.
 
-Available callers for somatic variants are currently:
+There are also a selection of other somatic variant callers available:
 
 | Software     | Tumor-Normal | Tumor-Only | SNP | INDEL |  SV  | GPU accelerated |
 | ------------ | :----------: | :--------: | :-: | :---: | :--: | :-------------: |

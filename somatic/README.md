@@ -10,7 +10,7 @@ The following scripts are ready for use depending on which analysis is required
 | Full | [parabricks_somatic_slurm.sh](./parabricks_somatic_slurm.sh) | [run_full_somatic.sh](./run_full_somatic.sh) |
 | Full Tumor-only | [parabricks_somatic_tumor_slurm.sh](./parabricks_somatic_tumor_slurm.sh) | [run_full_somatic_tumor.sh](./run_full_somatic_tumor.sh) |
 
-**Use Full version** if you start with fastq
+**Use Full version** if you start with FASTQ files
 
 ### Just variant calling
 | Task | Main script | Helper script |
@@ -23,7 +23,7 @@ The following scripts are ready for use depending on which analysis is required
 | Manta | [parabricks_manta_slurm.sh](./parabricks_manta_slurm.sh) | [run_manta.sh](./run_manta.sh) |
 | Strelka | [parabricks_strelka_slurm.sh](./parabricks_strelka_slurm.sh) | [run_strelka.sh](./run_strelka.sh) |
 | Strelka & Manta | [parabricks_strelkamanta_slurm.sh](./parabricks_strelkamanta_slurm.sh) | [run_strelkamanta.sh](./run_strelkamanta.sh) |
-**Use Mutect2 version** if you already have BAM
+**Use these versions** if you are starting with BAM files
 
 The main scripts contain reasonable default settings for the [slurm](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/documents/slurm.md) parameters, as well as the Parabricks command line. Information about the input files and folder locations have to be either provided on the command line or edited into the script file.
 
