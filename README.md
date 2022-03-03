@@ -29,7 +29,7 @@ export PATH="${PWD}/AI-MD-variant-calling/somatic":$PATH
 export PATH="${PWD}/AI-MD-variant-calling/support":$PATH
 ```
 
-A test data set and a [tutorial](https://github.com/si-medbif/AI-MD-variant-calling/example/tutorial.md) for a complete analysis is provided in the [example](https://github.com/si-medbif/AI-MD-variant-calling/example) section.
+A test data set and a [tutorial](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/tutorial.md) for a complete analysis is provided in the [example](https://github.com/si-medbif/AI-MD-variant-calling/example) section.
 
 ## Germline variant detection
 
