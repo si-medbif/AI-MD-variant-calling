@@ -78,15 +78,11 @@ The runtime has been tested on a publically available [WES dataset](https://gith
 
 Full run times, FASTQ to VCF, using the main pipeline with BWA and the GATK software packages:
 ```
-    * WES:                 19m
-    * WGS:              1h 32m (filtered VCF)
-    * WGS, tumor only:     45m (VCF) + 44m (filtered VCF)
+    * WES, HC:                  6m (VCF)
+    * WES, DeepVariant:        11m (VCF)
+    * WGS, HC:                 44m (VCF) (filtered VCF)
 ```
-Note that filtering tumor-only data takes a lot longer to complete.
 
 Varint calling
 ```
-    * WGS, loFreq:                   NA (test data did not report any variants)
-    * WGS, somaticsniper (8 CPU):        54m
-    * WGS, strelka & manta (32 CPU): 13h 13m
 ```
