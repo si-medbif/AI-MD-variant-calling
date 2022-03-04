@@ -1,43 +1,20 @@
 # Somatic variant detection
 
-## Options for running the parabricks scripts
-
-The following scripts are ready for use depending on which analysis is required
-
-### Full pipeline
+## Full pipeline
 | Task | Main script | Helper script |
 | --- | --- | --- |
 | Full | [parabricks_somatic_slurm.sh](./parabricks_somatic_slurm.sh) | [run_full_somatic.sh](./run_full_somatic.sh) |
 | Full Tumor-only | [parabricks_somatic_tumor_slurm.sh](./parabricks_somatic_tumor_slurm.sh) | [run_full_somatic_tumor.sh](./run_full_somatic_tumor.sh) |
 
-**Use Full version** if you start with FASTQ files
+**Use Full pipeline** if you start with FASTQ files
 
-### Just variant calling
-| Task | Main script | Helper script |
-| --- | --- | --- |
-| Mutect2 | [parabricks_mutect2_slurm.sh](./parabricks_mutect2_slurm.sh) | [run_mutect2.sh](./run_mutect2.sh) |
-| SomaticSniper | [parabricks_somaticsniper_slurm.sh](./parabricks_somaticsniper_slurm.sh) | [run_somaticsniper.sh](./run_somaticsniper.sh) |
-| LoFreq | [parabricks_lofreq_slurm.sh](./parabricks_lofreq_slurm.sh) | [run_lofreq.sh](./run_lofreq.sh) |
-| MuSE | [parabricks_muse_slurm.sh](./parabricks_muse_slurm.sh) | [run_muse_WGS.sh](./run_muse_WGS.sh)/[run_muse_WES.sh](./run_muse_WES.sh) |
-| Manta | [parabricks_manta_slurm.sh](./parabricks_manta_slurm.sh) | [run_manta.sh](./run_manta.sh) |
-| Strelka | [parabricks_strelka_slurm.sh](./parabricks_strelka_slurm.sh) | [run_strelka.sh](./run_strelka.sh) |
-| Strelka & Manta | [parabricks_strelkamanta_slurm.sh](./parabricks_strelkamanta_slurm.sh) | [run_strelkamanta.sh](./run_strelkamanta.sh) |
-
-**Use these versions** if you are starting with BAM files
-
-The main scripts contain reasonable default settings for the [slurm](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/documents/slurm.md) parameters, as well as the Parabricks command line. Information about the input files and folder locations have to be either provided on the command line or edited into the script file.
-
-An alternative way of running the main scripts is by using the helper scripts. The difference is that here the input is a configuration file with all the details about the samples to be run. The configuration file can also contain information about several samples, each line being a different sample.
-
-## Full pipeline from FASTQ to VCF:
-```
+```bash
 run_full_somatic.sh config1.txt        # Matched Tumor-Normal
 run_full_somatic_tumor.sh config1.txt  # Tumor only
 ```
 
-  The main scripts to run the whole analysis from FASTQ to VCF. It can be run both with a set of matched tumor-normal FASTQ files, or with only a tumor FASTQ file. The config-file lists information for one sample per line with a format as described below. In this way several samples can be queued up for analysis.
-
-The main somatic pipeline does not (yet) filter the variant calls, this step has been added using a singluarity image of GATK to run the FilterMutectCalls process.
+The helper scripts are a convenient way of running the pipeline. The input is a configuration file with all the details about the samples to be run, see below for details. The configuration file can also contain information about more than one sample.
+The main scripts contain reasonable default settings for the [slurm](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/documents/slurm.md) parameters, as well as the Parabricks command line. Information about the input files and folder locations have to be either provided on the command line or edited into the script file.
 
 ### Configuration1 file
 
@@ -55,11 +32,22 @@ This is a text file with comma separated columns:
 ```
 - [Example config file 1](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/config1_WES_example.txt)
 
-## Variant calling
+## Individual variant callers
 After generating the tumor and normal BAM files, there are several somatic variant callers available
 
-## Somatic variant calling
-```
+| Task | Main script | Helper script |
+| --- | --- | --- |
+| Mutect2 | [parabricks_mutect2_slurm.sh](./parabricks_mutect2_slurm.sh) | [run_mutect2.sh](./run_mutect2.sh) |
+| SomaticSniper | [parabricks_somaticsniper_slurm.sh](./parabricks_somaticsniper_slurm.sh) | [run_somaticsniper.sh](./run_somaticsniper.sh) |
+| LoFreq | [parabricks_lofreq_slurm.sh](./parabricks_lofreq_slurm.sh) | [run_lofreq.sh](./run_lofreq.sh) |
+| MuSE | [parabricks_muse_slurm.sh](./parabricks_muse_slurm.sh) | [run_muse_WGS.sh](./run_muse_WGS.sh)/[run_muse_WES.sh](./run_muse_WES.sh) |
+| Manta | [parabricks_manta_slurm.sh](./parabricks_manta_slurm.sh) | [run_manta.sh](./run_manta.sh) |
+| Strelka | [parabricks_strelka_slurm.sh](./parabricks_strelka_slurm.sh) | [run_strelka.sh](./run_strelka.sh) |
+| Strelka & Manta | [parabricks_strelkamanta_slurm.sh](./parabricks_strelkamanta_slurm.sh) | [run_strelkamanta.sh](./run_strelkamanta.sh) |
+
+**Use these** if you are starting with BAM files
+
+```bash
 run_mutect2.sh config2.txt
 run_somaticsniper.sh config2.txt
 run_lofreq.sh config2.txt
