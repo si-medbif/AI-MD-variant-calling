@@ -1,4 +1,4 @@
-# HPC-pipelines
+# AI-MD-variant-calling
 
 ## Description
 
