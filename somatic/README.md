@@ -14,11 +14,12 @@ run_full_somatic_tumor.sh config1.txt  # Tumor only
 ```
 
 The helper scripts are a convenient way of running the pipeline. The input is a configuration file with all the details about the samples to be run, see below for details. The configuration file can also contain information about more than one sample.
+
 The main scripts contain reasonable default settings for the [slurm](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/documents/slurm.md) parameters, as well as the Parabricks command line. Information about the input files and folder locations have to be either provided on the command line or edited into the script file.
 
 ### Configuration1 file
 
-This is a text file with comma separated columns:
+This is a text file with 9 comma separated columns:
 ```
 1. The folder containing the FASTQ files
 2. The folder where the generated BAM files should be stored
@@ -58,7 +59,7 @@ run_strelkamanta.sh config2.txt
 
 ### Configuration2 file:
 
-This is a text file with comma separated columns:
+This is a text file with 4 comma separated columns:
 ```
 1. The folder containing the input BAM files
 2. The folder where the generated VCF files should be stored
