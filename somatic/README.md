@@ -96,7 +96,7 @@ Varint calling
 ## No-GPU runtimes 
 ```
     * WGS (alignment_sort, 32 CPU): 7h
-    * WGS (markduplicates)
+    * WGS (markduplicates) :        5h
     * WGS (Recalibrate)
     * WGS (Mutect2)
 ```
