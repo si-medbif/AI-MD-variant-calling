@@ -17,24 +17,37 @@
 
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH
-module load parabricks/3.7.0-1.ampere
+#module load parabricks/3.7.0-1.ampere
+module load parabricks/3.6.1-1-ampere
 export REF=/shared/dataset/parabricks_sample/Ref
 export BUNDLE=/shared/example_data/hg38bundle
 # User-input
 VCFDATA=$1
 SAMPLE=$2
 
+
 pbrun vqsr \
 	--in-vcf ${VCFDATA}/${SAMPLE}_hc.vcf \
 	--out-vcf ${VCFDATA}/${SAMPLE}_hc.vqsr.vcf \
 	--out-recal ${VCFDATA}/${SAMPLE}.recal \
 	--out-tranches ${VCFDATA}/${SAMPLE}.tranches \
-	--resource omni,known=false,training=true,truth=false,prior=12.0:${BUNDLE}/1000G_omni2.5.hg38.vcf \
-	--resource 1000G,known=false,training=true,truth=false,prior=10.0:${BUNDLE}/1000G_phase1.snps.high_confidence.hg38.vcf \
-	--resource dbsnp,known=false,training=true,truth=true,prior=7.0:${BUNDLE}/dbsnp_146.hg38.vcf \
-	--resource hapmap,known=false,training=true,truth=false,prior=15.0:${BUNDLE}/hapmap_3.3.hg38.vcf \
+	--resource omni,known=false,training=true,truth=true,prior=12.0:${BUNDLE}/1000G_omni2.5.hg38.vcf \
 	--annotation QD \
 	--annotation MQ \
 	--annotation MQRankSum \
 	--annotation ReadPosRankSum 
+
+#pbrun vqsr \
+#	--in-vcf ${VCFDATA}/${SAMPLE}_hc.vcf \
+#	--out-vcf ${VCFDATA}/${SAMPLE}_hc.vqsr.vcf \
+#	--out-recal ${VCFDATA}/${SAMPLE}.recal \
+#	--out-tranches ${VCFDATA}/${SAMPLE}.tranches \
+#	--resource omni,known=false,training=true,truth=false,prior=12.0:${BUNDLE}/1000G_omni2.5.hg38.vcf \
+#	--resource 1000G,known=false,training=true,truth=false,prior=10.0:${BUNDLE}/1000G_phase1.snps.high_confidence.hg38.vcf \
+#	--resource dbsnp,known=false,training=true,truth=true,prior=7.0:${BUNDLE}/dbsnp_146.hg38.vcf \
+#	--resource hapmap,known=false,training=true,truth=false,prior=15.0:${BUNDLE}/hapmap_3.3.hg38.vcf \
+#	--annotation QD \
+#	--annotation MQ \
+#	--annotation MQRankSum \
+#	--annotation ReadPosRankSum 
 

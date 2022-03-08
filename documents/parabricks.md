@@ -36,3 +36,7 @@ SomaticSniper is typically run on BAM files that have neither been base quality 
 ### MuSE
 
 The BAM files need to be processed by following the Genome Analysis Toolkit (GATK) Best Practices that include marking duplicates, realigning the paired tumor-normal BAMs jointly and recalibrating base quality scores. (https://bioinformatics.mdanderson.org/public-software/muse/)
+
+### Smoove
+
+For large cohorts, it's better to parallelize across samples rather than using a large $threads per sample. smoove can only parallelize up to 2 or 3 threads on a single-sample and it's most efficient to use 1 thread. (https://github.com/brentp/smoove)
