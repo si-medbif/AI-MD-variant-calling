@@ -92,3 +92,11 @@ Varint calling
     * WGS, somaticsniper (8 CPU):        54m
     * WGS, strelka & manta (32 CPU): 13h 13m
 ```
+
+## No-GPU runtimes 
+```
+    * WGS (alignment_sort, 32 CPU): 7h
+    * WGS (markduplicates)
+    * WGS (Recalibrate)
+    * WGS (Mutect2)
+```
