@@ -27,6 +27,7 @@ Download this repository and add it to the PATH to gain access to the wrapper sc
 git clone https://github.com/si-medbif/AI-MD-variant-calling.git
 export PATH="${PWD}/AI-MD-variant-calling/somatic":$PATH
 export PATH="${PWD}/AI-MD-variant-calling/support":$PATH
+export PATH="${PWD}/AI-MD-variant-calling/germline":$PATH
 ```
 
 A test WES data set and a [tutorial](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/tutorial.md) for a complete somatic analysis is provided in the [example](https://github.com/si-medbif/AI-MD-variant-calling/example) section.
