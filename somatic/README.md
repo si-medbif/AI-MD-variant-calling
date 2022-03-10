@@ -49,13 +49,15 @@ After generating the tumor and normal BAM files, there are several somatic varia
 **Use these** if you are starting with BAM files
 
 ```bash
-run_mutect2.sh config2.txt
-run_somaticsniper.sh config2.txt
-run_lofreq.sh config2.txt
-run_muse_WGS.sh config2.txt
-run_muse_WGS.sh config2.txt
-run_strelkamanta.sh config2.txt
+run_mutect2.sh config1.txt/config2.txt
+run_somaticsniper.sh config1.txt/config2.txt
+run_lofreq.sh config1.txt/config2.txt
+run_muse_WGS.sh config1.txt/config2.txt
+run_muse_WGS.sh config1.txt/config2.txt
+run_strelkamanta.sh config1.txt/config2.txt
 ```
+
+The configuration file can be either the config1.txt presented above, or the config2.txt presented below.
 
 ### Configuration2 file:
 
@@ -94,9 +96,21 @@ Varint calling
 ```
 
 ## No-GPU runtimes 
+Running while using only the internal parallelization of each software package
 ```
     * WGS (alignment_sort, 32 CPU): 7h
-    * WGS (markduplicates) :        5h
-    * WGS (Recalibrate)
-    * WGS (Mutect2)
+    * WGS (markduplicates) :        5h 30m
+    * WGS (Recalibrate)    :       12h 30m
+    * WGS (Mutect2)        :       37h
+    * WGS                  :    2d 14h
+```
+
+Time spent when running BQSR and Mutect2 for each chromosome in parallel (calculated based on chromosome 1):
+```
+    * WGS (alignment_sort, 32 CPU):   7h
+    * WGS (markduplicates)        :   5h 30m
+    * WGS (Calculate BQSR) (chr1) :      30m
+    * WGS (Apply BQSR)            :   4h 40m
+    * WGS (Mutect2) (chr1)        :   3h 10m
+    * WGS                         :  20h 50m
 ```
