@@ -11,20 +11,23 @@
 #SBATCH --nodelist=omega
 #SBATCH --export=ALL        # Pass the env var
 #SBATCH --partition=batch       # Req specific partition    # default: batch
+#SBATCH --gres=gpu:2
 #SBATCH --mem=128gb                    # Memory size requested   # default: 4gb
-#SBATCH --cpus-per-task=8             # Number of CPUs per task   # default: 1 CPU per task 
-#SBATCH --time=8:00:00               # Time limit hrs:min:sec   # default: 01:00:00 (+1 hours of extra overtime limit) 
+#SBATCH --cpus-per-task=24             # Number of CPUs per task   # default: 1 CPU per task 
+#SBATCH --time=2:00:00               # Time limit hrs:min:sec   # default: 01:00:00 (+1 hours of extra overtime limit) 
 
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH
-#module load parabricks/3.7.0-1.ampere
-module load parabricks/3.6.1-1-ampere
+module load parabricks/3.7.0-1.ampere
+#module load parabricks/3.6.1-1-ampere
 export REF=/shared/dataset/parabricks_sample/Ref
 export BUNDLE=/shared/example_data/hg38bundle
 # User-input
 VCFDATA=$1
 SAMPLE=$2
 
+pbrun --version
+nvidia-smi
 
 pbrun vqsr \
 	--in-vcf ${VCFDATA}/${SAMPLE}_hc.vcf \
