@@ -31,9 +31,9 @@ export PATH="${PWD}/AI-MD-variant-calling/support":$PATH
 
 A test WES data set and a [tutorial](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/tutorial.md) for a complete somatic analysis is provided in the [example](https://github.com/si-medbif/AI-MD-variant-calling/example) section.
 
-## Germline variant detection
+## [Germline variant detection](https://github.com/si-medbif/AI-MD-variant-calling/tree/main/germline#germline-variant-detection)
 
-Coming soon ...
+The main ParaBricks pipeline is using BWA for read mapping, GATK for processing of BAM files and GATK-HaplotypeCaller for variant calling.
 
 ## [Somatic variant detection](https://github.com/si-medbif/AI-MD-variant-calling/tree/main/somatic#somatic-variant-detection)
 
