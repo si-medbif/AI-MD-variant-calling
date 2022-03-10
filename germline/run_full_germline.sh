@@ -2,8 +2,6 @@
 
 SAMPLES=$1
 
-echo ${SAMPLES}
-
 LINES=$(cat $SAMPLES)
 
 for line in $LINES

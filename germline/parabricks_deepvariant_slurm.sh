@@ -4,8 +4,8 @@
 # https://slurm.schedmd.com/sbatch.html.
 # TODO: Look into array jobs. (https://help.rc.ufl.edu/doc/SLURM_Job_Arrays)
 
-#SBATCH --job-name=germline-parabricks    # Job name    # default: script name or sbatch
-#SBATCH --output=job%j_germline.log           # Output file    # default: slurm-<jobid>.out
+#SBATCH --job-name=deepvariant-parabricks    # Job name    # default: script name or sbatch
+#SBATCH --output=job%j_deepvariant.log           # Output file    # default: slurm-<jobid>.out
 #SBATCH --ntasks=1                    # Number of tasks    # default: 1 task per node
 #SBATCH --nodes=1              # Req min-max of nodes      # default: 1-as many as possible to satisfy the job without delay
 #SBATCH --nodelist=omega
@@ -24,11 +24,21 @@ export REF=/shared/dataset/parabricks_sample/Ref
 BAMDATA=$1
 VCFDATA=$2
 SAMPLE=$3
+DATA=$4
+
+if [[ $DATA = "WES" ]]
+then
+	DATATYPE="--use-wes-model"
+else
+	DATATYPE=""
+fi
 
 
-pbrun haplotypecaller \
+pbrun deepvariant \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 	--in-bam ${BAMDATA}/${SAMPLE}.bam  \
-	--in-recal-file ${BAMDATA}/${SAMPLE}.recal.txt \
+	--out-variants ${VCFDATA}/${SAMPLE}_deepvariant.vcf \
+	--mode shortread \
 	--num-gpus 4 \
-	--out-variants ${VCFDATA}/${SAMPLE}_hc.vcf \
+	${DATATYPE}
+
