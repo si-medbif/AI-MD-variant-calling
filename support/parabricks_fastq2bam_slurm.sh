@@ -27,6 +27,7 @@ TUMOR=$3
 TUMOR1=$4
 TUMOR2=$5
 
+pbrun --version
 
 pbrun fq2bam \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
