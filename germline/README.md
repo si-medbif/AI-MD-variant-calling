@@ -55,6 +55,12 @@ run_smoove.sh config.txt
 ```
 **Note** that the configuration file is the same as for the full pipeline.
 
+# Joint variant calling
+
+Parabricks currently has limited capabilites for doing joint variant calling.
+
+This section is under development.
+
 # Example run-times
 
 ## Test data:
