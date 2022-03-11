@@ -31,7 +31,7 @@ This is a text file with 6 comma separated columns:
 5. The 1st FASTQ file for the normal sample (leave empty if no fastq file is present)
 6. The 2nd FASTQ file for the normal sample (leave empty if no fastq file is present)
 ```
-- [Example config file 1](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/config1_WES_example.txt)
+- [Example config file](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/config_germline_WES.txt)
 
 
 ## Individual variant callers
