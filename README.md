@@ -30,11 +30,17 @@ export PATH="${PWD}/AI-MD-variant-calling/support":$PATH
 export PATH="${PWD}/AI-MD-variant-calling/germline":$PATH
 ```
 
-A test WES data set and a [tutorial](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/tutorial.md) for a complete somatic analysis is provided in the [example](https://github.com/si-medbif/AI-MD-variant-calling/example) section.
+There are tutorials for calling [germline](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/tutorial_germline.md#step-by-step-tutorial-to-analyse-an-example-wes-dataset-from-a-first-time-perspective) and [somatic](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/tutorial.md#step-by-step-tutorial-to-analyse-an-example-wes-dataset-from-a-first-time-perspective) variants in the [example](https://github.com/si-medbif/AI-MD-variant-calling/tree/main/example#example-scripts-and-data-sets) section.
 
 ## [Germline variant detection](https://github.com/si-medbif/AI-MD-variant-calling/tree/main/germline#germline-variant-detection)
 
 The main ParaBricks pipeline is using BWA for read mapping, GATK for processing of BAM files and GATK-HaplotypeCaller for variant calling.
+
+| Software     |  SNP | INDEL |  SV  | GPU accelerated |
+| ------------ |  :-: | :---: | :--: | :-------------: |
+| HaplotypeCaller |  V   | V     | X    | V               |
+| DeepVariant  |  V   | V     | X    | V               |
+| Smoove       |  X   | X     | V    | X               |
 
 ## [Somatic variant detection](https://github.com/si-medbif/AI-MD-variant-calling/tree/main/somatic#somatic-variant-detection)
 
