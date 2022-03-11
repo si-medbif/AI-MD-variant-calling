@@ -52,20 +52,30 @@ run_haplotypecaller.sh config.txt
 run_deepvariant_WES.sh config.txt
 run_deepvariant_WGS.sh config.txt
 run_smoove.sh config.txt
+run_manta_germline.sh config.txt
+run_strelka_germline.sh config.txt
 ```
+
 **Note** that the configuration file is the same as for the full pipeline.
 
 # Joint variant calling
 
-Parabricks currently has limited capabilites for doing joint variant calling.
+The scripts can be run using the same config file as above. All samples in the file will be combined into a single analysis. 
 
-This section is under development.
+Haplotypecaller trios only supports two or three samples.
+Manta and Strelka were designed to only support family scale cohort sizes, i.e. up to 10s of samples. 
+
+```bash
+run_haplotypecaller_trios.sh config.txt
+run_manta_joint.sh config.txt
+run_strelka_joint.sh config.txt
+```
 
 # Example run-times
 
 ## Test data:
 
-The runtime has been tested on a publically available [WES dataset](https://github.com/si-medbif/AI-MD-variant-calling/example/README.md) and on a private WGS dataset. Both datasets contained a tumor and a matched normal sample.
+The runtime has been tested on a publically available [WES dataset](https://github.com/si-medbif/AI-MD-variant-calling/example/README.md) and on a private WGS dataset.
 
 Full run times, FASTQ to VCF, using the main pipeline with BWA and the GATK software packages:
 ```

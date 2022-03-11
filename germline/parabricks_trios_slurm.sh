@@ -2,7 +2,6 @@
 
 # For the complete information about SBATCH:
 # https://slurm.schedmd.com/sbatch.html.
-# TODO: Look into array jobs. (https://help.rc.ufl.edu/doc/SLURM_Job_Arrays)
 
 #SBATCH --job-name=trios-parabricks    # Job name    # default: script name or sbatch
 #SBATCH --output=job%j_trios.log           # Output file    # default: slurm-<jobid>.out
@@ -19,13 +18,22 @@
 export MODULEPATH=/shared/software/modules:$MODULEPATH
 module load parabricks/3.7.0-1.ampere
 export REF=/shared/dataset/parabricks_sample/Ref
-# User-input
-BAMDATA=$1
-VCFDATA=$2
+
+SAMPLES=$1
+
+LINES=$(cat $SAMPLES)
+
+ALLVCF=""
+
+for line in $LINES
+do
+	IFS="," read -a arr <<< $line
+	vcf="${arr[2]}"
+	normal="${arr[3]}"
+	ALLVCF+=" --in-gvcf ${vcf}/${normal}_hc.g.vcf.gz"
+done
 
 pbrun triocombinegvcf \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
-	--in-gvcf ${VCFDATA}/father.g.vcf \
-	--in-gvcf ${VCFDATA}/mother.g.vcf \
-	--in-gvcf ${VCFDATA}/child.g.vcf \
-	--out-variants ${VCFDATA}/combined.g.vcf
+	--out-variants ${vcf}/combined_hc.g.vcf.gz \
+	${ALLVCF}
