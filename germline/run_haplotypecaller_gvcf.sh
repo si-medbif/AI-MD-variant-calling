@@ -7,11 +7,8 @@ LINES=$(cat $SAMPLES)
 for line in $LINES
 do
 	IFS="," read -a arr <<< $line
-	fastq="${arr[0]}"
 	bam="${arr[1]}"
 	vcf="${arr[2]}"
 	normal="${arr[3]}"
-	normal1="${arr[4]}"
-	normal2="${arr[5]}"
-	sbatch parabricks_germline_slurm.sh $fastq $bam $vcf $normal $normal1 $normal2	
+	sbatch parabricks_haplotypecaller-gvcf_slurm.sh $bam $vcf $normal
 done
