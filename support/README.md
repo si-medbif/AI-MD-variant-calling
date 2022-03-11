@@ -7,8 +7,13 @@ Check quality of FASTQ files with FASTQC, output is located in the fastq-folder 
 run_fastqc.sh config.txt
 ```
 
-Calculate QC-stats of the generated BAM files, the output is located in the bam-folder specified in the config-file:
+Run just read alignment and create BAM files for further analysis
 ```bash
 run_fastq2bam.sh config.txt
+```
+
+Calculate QC-stats of the generated BAM files, the output is located in the bam-folder specified in the config-file:
+```bash
+run_bammetrics.sh config.txt
 run_collectmultiplemetrics.sh config.txt
 ```
