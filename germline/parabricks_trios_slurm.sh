@@ -10,9 +10,9 @@
 #SBATCH --nodelist=omega
 #SBATCH --export=ALL        # Pass the env var
 #SBATCH --partition=batch       # Req specific partition    # default: batch
-#SBATCH --mem=16gb                    # Memory size requested   # default: 4gb
-#SBATCH --cpus-per-task=4             # Number of CPUs per task   # default: 1 CPU per task 
-#SBATCH --time=1:00:00               # Time limit hrs:min:sec   # default: 01:00:00 (+1 hours of extra overtime limit) 
+#SBATCH --mem=128gb                    # Memory size requested   # default: 4gb
+#SBATCH --cpus-per-task=12             # Number of CPUs per task   # default: 1 CPU per task 
+#SBATCH --time=8:00:00               # Time limit hrs:min:sec   # default: 01:00:00 (+1 hours of extra overtime limit) 
 
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH
@@ -25,13 +25,22 @@ LINES=$(cat $SAMPLES)
 
 ALLVCF=""
 
+count=0
+
 for line in $LINES
 do
 	IFS="," read -a arr <<< $line
 	vcf="${arr[2]}"
 	normal="${arr[3]}"
 	ALLVCF+=" --in-gvcf ${vcf}/${normal}_hc.g.vcf.gz"
+	((count+=1))
 done
+
+if [[ count -gt 3 ]]
+then
+	echo "ERROR: Found ${count} samples, but this tool only accepts at most 3 samples."
+	exit 1
+fi
 
 pbrun triocombinegvcf \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
