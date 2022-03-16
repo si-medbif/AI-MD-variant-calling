@@ -44,5 +44,11 @@ fi
 
 pbrun triocombinegvcf \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
-	--out-variants ${vcf}/combined_hc.g.vcf.gz \
+	--out-variants ${vcf}/combined_hc.g.vcf \
 	${ALLVCF}
+
+pbrun genotypegvcf \
+	--ref ${REF}/Homo_sapiens_assembly38.fasta \
+	--in-gvcf ${vcf}/combined_hc.g.vcf \
+	--out-vcf ${vcf}/combined_hc.vcf \
+	--num-threads 4
