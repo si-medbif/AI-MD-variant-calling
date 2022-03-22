@@ -86,6 +86,9 @@ The runtime has been tested on a publically available [WES dataset](https://gith
 | Mutect2, full, tumor only |  ? m |  1 h 31 m |
 | Mutect2                   |  ? m |      34 m |
 | LoFreq                    |  ? m |        NA |
+| Manta                     |  3 m |       ? m |
+| Muse                      | 55 m |       ? m |
+| Strelka                   | 20 m |       ? m |
 | SomaticSniper             |  ? m |      54 m |
 | Strelka & Manta           |  ? m | 13 h 13 m |
 
