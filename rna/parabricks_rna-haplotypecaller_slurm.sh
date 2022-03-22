@@ -29,7 +29,7 @@ SAMPLE=$3
 
 pbrun haplotypecaller \
 	--ref ${REF}/GRCh38.primary_assembly.genome.fa \
-	--in-bam ${BAMDATA}/${SAMPLE}.splitncigar.bam  \
+	--in-bam ${BAMDATA}/${SAMPLE}.bam  \
 	--in-recal-file ${BAMDATA}/${SAMPLE}.recal.txt \
 	--num-gpus 2 \
 	--out-variants ${VCFDATA}/${SAMPLE}_hc.vcf \

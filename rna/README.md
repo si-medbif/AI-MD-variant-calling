@@ -44,7 +44,10 @@ run_arriba.sh config.txt
 The runtime has been tested on a publicly available [blood RNA dataset](https://github.com/si-medbif/AI-MD-variant-calling/example/README.md).
 
 Full run times, FASTQ to VCF, using the main pipeline with STAR and the GATK software packages:
-```
-Create BAM: 17m
-
-```
+| Operation | Time, 2 GPU |
+| --- | --- |
+| Haplotypecaller, Full | 32 m |
+| Fastq2Bam | 17 m |
+| SplitNCigar | 11 m |
+| HaplotypeCaller | 4 m |
+| Arriba | 13 m |
