@@ -10,7 +10,7 @@
 #SBATCH --nodelist=omega
 #SBATCH --export=ALL        # Pass the env var
 #SBATCH --partition=batch       # Req specific partition    # default: batch
-#SBATCH --gres=gpu:4                  # Number of GPUs requested  # default: none (0) --gres=gpu:3g.20gb:2
+#SBATCH --gres=gpu:2                  # Number of GPUs requested  # default: none (0) --gres=gpu:3g.20gb:2
 #SBATCH --mem=412gb                    # Memory size requested   # default: 4gb
 #SBATCH --cpus-per-task=32             # Number of CPUs per task   # default: 1 CPU per task 
 #SBATCH --time=8:00:00               # Time limit hrs:min:sec   # default: 01:00:00 (+1 hours of extra overtime limit) 
@@ -39,7 +39,7 @@ pbrun rna_gatk \
 	--genome-lib-dir ${STAR} \
 	--out-bam ${BAMDATA}/${SAMPLE}.bam  \
 	--out-recal-file ${BAMDATA}/${SAMPLE}.recal.txt \
-	--num-gpus 4 \
+	--num-gpus 2 \
 	--num-cpu-threads 12 \
 	--num-threads 6 \
 	--read-files-command zcat \
