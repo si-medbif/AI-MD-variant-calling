@@ -12,5 +12,5 @@ do
 	bam="${arr[1]}"
 	vcf="${arr[2]}"
 	normal="${arr[3]}"
-	sbatch parabricks_deepvariant-germline_slurm.sh $bam $vcf $normal WGS
+	sbatch parabricks_deepvariant_slurm.sh $bam $vcf $normal WGS
 done

@@ -28,5 +28,6 @@ pbrun strelka \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 	--out-prefix ${VCFDATA}/${SAMPLE} \
 	--num-threads 32 \
-	--in-bams ${BAMDATA}/${SAMPLE}.bam
+	--in-bams ${BAMDATA}/${SAMPLE}.bam \
+	--bed /shared/example_data/hg38bundle/main_chroms.bed.gz
 

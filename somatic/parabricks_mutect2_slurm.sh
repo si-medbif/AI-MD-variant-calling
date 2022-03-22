@@ -34,6 +34,6 @@ pbrun mutectcaller \
 	--in-normal-bam ${BAMDATA}/${NORMAL}.bam \
 	--normal-name ${NORMAL} \
 	--in-normal-recal-file ${BAMDATA}/${NORMAL}.recal.txt \
-	--out-vcf  ${VCFDATA}/${TUMOR}_m2.2.vcf
+	--out-vcf  ${VCFDATA}/${TUMOR}_m2.vcf
 
 filter_m2_singularity.sh ${VCFDATA} ${TUMOR}

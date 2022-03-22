@@ -11,7 +11,7 @@
 #SBATCH --nodelist=omega
 #SBATCH --export=ALL        # Pass the env var
 #SBATCH --partition=batch       # Req specific partition    # default: batch
-#SBATCH --gres=gpu:4                  # Number of GPUs requested  # default: none (0) --gres=gpu:3g.20gb:2
+#SBATCH --gres=gpu:2                 # Number of GPUs requested  # default: none (0) --gres=gpu:3g.20gb:2
 #SBATCH --mem=384gb                    # Memory size requested   # default: 4gb
 #SBATCH --cpus-per-task=32             # Number of CPUs per task   # default: 1 CPU per task 
 #SBATCH --time=8:00:00               # Time limit hrs:min:sec   # default: 01:00:00 (+1 hours of extra overtime limit) 
@@ -35,7 +35,7 @@ NORMAL2=$9
 pbrun somatic \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 	--knownSites ${REF}/Homo_sapiens_assembly38.known_indels.vcf.gz \
-	--num-gpus=4 \
+	--num-gpus=2 \
 	--in-tumor-fq ${FASTQDATA}/${TUMOR1} ${FASTQDATA}/${TUMOR2} "@RG\tID:${TUMOR}_rg1\tLB:lib1\tPL:bar\tSM:${TUMOR}\tPU:${TUMOR}_rg1" \
 	--out-tumor-bam ${BAMDATA}/${TUMOR}.bam  \
 	--out-tumor-recal-file ${BAMDATA}/${TUMOR}.recal.txt \

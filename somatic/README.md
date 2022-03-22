@@ -80,37 +80,25 @@ This is a text file with 4 comma separated columns:
 
 The runtime has been tested on a publically available [WES dataset](https://github.com/si-medbif/AI-MD-variant-calling/example/README.md) and on a private WGS dataset. Both datasets contained a tumor and a matched normal sample.
 
-Full run times, FASTQ to VCF, using the main pipeline with BWA and the GATK software packages:
-```
-    * WES:                 19m
-    * WGS:              1h 32m (filtered VCF)
-    * WGS, tumor only:     45m (VCF) + 44m (filtered VCF)
-```
-Note that filtering tumor-only data takes a lot longer to complete.
-
-Varint calling
-```
-    * WGS, loFreq:                   NA (test data did not report any variants)
-    * WGS, somaticsniper (8 CPU):        54m
-    * WGS, strelka & manta (32 CPU): 13h 13m
-```
+ Operation | Time WES | Time WGS |
+| --- | --- | --- |
+| Mutect2, full             | 19 m |  1 h 32 m |
+| Mutect2, full, tumor only |  ? m |  1 h 31 m |
+| Mutect2                   |  ? m |      34 m |
+| LoFreq                    |  ? m |        NA |
+| SomaticSniper             |  ? m |      54 m |
+| Strelka & Manta           |  ? m | 13 h 13 m |
 
 ## No-GPU runtimes 
-Running while using only the internal parallelization of each software package
-```
-    * WGS (alignment_sort, 32 CPU): 7h
-    * WGS (markduplicates) :        5h 30m
-    * WGS (Recalibrate)    :       12h 30m
-    * WGS (Mutect2)        :       37h
-    * WGS                  :    2d 14h
-```
 
-Time spent when running BQSR and Mutect2 for each chromosome in parallel (calculated based on chromosome 1):
+Comparable time spent analysing a WGS data set running each chromosome in parallel:
 ```
     * WGS (alignment_sort, 32 CPU):   7h
     * WGS (markduplicates)        :   5h 30m
-    * WGS (Calculate BQSR) (chr1) :      30m
+    * WGS (Calculate BQSR)        :      30m
     * WGS (Apply BQSR)            :   4h 40m
-    * WGS (Mutect2) (chr1)        :   3h 10m
-    * WGS                         :  20h 50m
+    * WGS (Mutect2)               :   3h 10m
+
+    * WGS (Full run)              :  20h 50m
 ```
+|
