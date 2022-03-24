@@ -87,6 +87,20 @@ Ouput:
 
 Time spent: 15m
 
+---
+
+Remove common variants
+
+```bash
+run_frequencyfiltration.sh vcf/sample.vbvm/filteredVCF.annotated.vcf
+```
+
+Output:
+
+* vcf/sample.vbvm/filteredVCF.annotated.freqfilter.vcf
+
+---
+
 Generate QC-report.
 
 ```bash

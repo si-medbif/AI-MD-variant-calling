@@ -34,7 +34,7 @@ There are tutorials for calling [germline](https://github.com/si-medbif/AI-MD-va
 
 ## [Germline variant detection](https://github.com/si-medbif/AI-MD-variant-calling/tree/main/germline#germline-variant-detection)
 
-The main ParaBricks pipeline is using BWA for read mapping, GATK for processing of BAM files and either the GATK-HaplotypeCaller or the Google DeepVariant for variant calling. In the example section there is also a [suggested workflow](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/suggested_germline_analysis.md#germline-wgs) for discovering rare germline variants from a WGS dataset using a combination of variant callers.
+The main ParaBricks pipeline is using BWA for read mapping, GATK for processing of BAM files and either the GATK-HaplotypeCaller or the Google DeepVariant for variant calling. 
 
 Other stand-alone variant callers are also available:
 

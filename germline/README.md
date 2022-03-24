@@ -71,6 +71,11 @@ run_manta_joint.sh config.txt
 run_strelka_joint.sh config.txt
 ```
 
+# Suggested workflows for germline analysis
+
+* [Rare variants](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/suggested_germline_analysis.md#germline-wgs)
+* [Trios](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/suggested_germline-trios_analysis.md)
+
 # Example run-times
 
 ## Test data:

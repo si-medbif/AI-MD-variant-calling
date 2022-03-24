@@ -34,20 +34,20 @@ run_votebasedvcfmerger.sh config.txt
 
 Annotate a VCF file with information from GnomAD, ClinVar and 1000 Genomes.
 ```bash
-sbatch parabricks_snpswift_slurm.sh sample.vcf
+run_snpswift.sh sample.vcf
 ```
 
 Hard filtering a VCF file based on selected annotations. This is mostly used to filter HaplotypeCaller output when the VQSR option is not available:
 ```bash
-sbatch parabricks_variantfiltration_slurm.sh sample.vcf
+run_variantfiltration.sh sample.vcf
 ```
 
 Filtering VCF files by numeric annotations (e.g. frequency annotation):
 ```bash
-sbatch parabricks_frequencyfiltration_slurm.sh sample.vcf
+run_frequencyfiltration.sh sample.vcf
 ```
 
 Quality reports for VCF:
 ```bash
-sbatch parabricks_vcfqc_slurm.sh sample.vcf
+run_vcfqc.sh sample.vcf
 ```
