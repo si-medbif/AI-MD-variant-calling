@@ -30,3 +30,4 @@ pbrun strelka_workflow \
 	--num-threads 32 \
 	--in-tumor-bam ${BAMDATA}/${TUMOR}.bam  \
 	--in-normal-bam ${BAMDATA}/${NORMAL}.bam \
+	--bed /shared/example_data/hg38bundle/main_chroms.bed.gz

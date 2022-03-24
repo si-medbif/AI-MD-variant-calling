@@ -25,5 +25,6 @@ INVCF=$1
 pbrun vcfqc \
 	--in-vcf ${INVCF} \
 	--output-dir ${INVCF}_vcfqc \
+	--depth haplotypecaller_DP --allele-depth deepvariant_AD \
 	--num-gpus 2
 

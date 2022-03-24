@@ -29,5 +29,6 @@ pbrun strelka \
 	--in-tumor-bam ${BAMDATA}/${TUMOR}.bam \
 	--in-normal-bam ${BAMDATA}/${NORMAL}.bam \
 	--out-prefix ${VCFDATA}/${TUMOR} \
-	--num-threads 32
+	--num-threads 64 \
+	--bed /shared/example_data/hg38bundle/main_chroms.bed.gz
 

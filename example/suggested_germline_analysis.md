@@ -87,11 +87,22 @@ Ouput:
 
 Time spent: 15m
 
----
+Generate QC-report.
+
+```bash
+run_vcfqc.sh vcf/sample.vbvm/filteredVCF.annotated.vcf
+```
+
+Output:
+
+* vcf/sample.vbvm/filteredVCF.annotated.vcf_vcfqc/filteredVCF.annotated/
+
+Time spent: 2m
+
 
 ## Structural variants
 
-Search for CNV's in the dataset with CNVkit
+**CNVkit**
 
 ```bash
 run_cnvkit.sh config_WGS.txt
@@ -105,7 +116,7 @@ Time spent: 19m
 
 ---
 
-Search for general structural variants with Smoove:
+**Smoove**
 
 ```bash
 run_smoove.sh config_WGS.txt
@@ -115,3 +126,15 @@ Output:
 * vcf/sample_smoove/sample-smoove.vcf.gz
 
 Time spent: 31m
+
+**Manta**
+
+```bash
+run_manta_germline.sh config_WGS.txt
+```
+
+Output:
+
+* vcf/sample.manta_work/results/variants/diploidSV.vcf.gz
+
+Time spent: 19m

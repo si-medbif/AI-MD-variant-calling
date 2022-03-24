@@ -8,7 +8,7 @@
 #SBATCH --export=ALL      
 #SBATCH --partition=batch  
 #SBATCH --mem=128gb       
-#SBATCH --cpus-per-task=32  
+#SBATCH --cpus-per-task=64  
 #SBATCH --time=4:00:00     
 
 export MODULEPATH=/shared/software/modules:$MODULEPATH
@@ -35,6 +35,7 @@ done
 pbrun strelka \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 	--out-prefix ${vcf}/combined \
-	--num-threads 32 \
+	--num-threads 64 \
+	--bed /shared/example_data/hg38bundle/main_chroms.bed.gz \
 	${ALLBAM}
 
