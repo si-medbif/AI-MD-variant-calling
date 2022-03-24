@@ -7,8 +7,7 @@ LINES=$(cat $SAMPLES)
 for line in $LINES
 do
 	IFS="," read -a arr <<< $line
-	bam="${arr[1]}"
 	vcf="${arr[2]}"
 	normal="${arr[3]}"
-	sbatch parabricks_vcfqcbybam_slurm.sh $bam $vcf $normal
+	sbatch parabricks_votebasedvcfmerger_slurm.sh $vcf $normal
 done

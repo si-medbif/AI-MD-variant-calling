@@ -37,7 +37,7 @@ fi
 pbrun deepvariant \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 	--in-bam ${BAMDATA}/${SAMPLE}.bam  \
-	--out-variants ${VCFDATA}/${SAMPLE}_deepvariant.vcf \
+	--out-variants ${VCFDATA}/${SAMPLE}.deepvariant.vcf \
 	--mode shortread \
 	--num-gpus 2 \
 	${DATATYPE}

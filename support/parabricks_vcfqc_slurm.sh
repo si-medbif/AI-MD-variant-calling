@@ -20,11 +20,10 @@
 export MODULEPATH=/shared/software/modules:$MODULEPATH
 module load parabricks/3.7.0-1.ampere-extra-tools
 # User-input
-VCFDATA=$1
-SAMPLE=$2
+INVCF=$1
 
 pbrun vcfqc \
-	--in-vcf ${VCFDATA}/${SAMPLE}_hc.filtered.vcf \
-	--output-dir ${VCFDATA}/${SAMPLE}_vcfqc \
+	--in-vcf ${INVCF} \
+	--output-dir ${INVCF}_vcfqc \
 	--num-gpus 2
 

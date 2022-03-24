@@ -33,6 +33,6 @@ nvidia-smi
 pbrun cnnscorevariants \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 	--in-bam ${BAMDATA}/${SAMPLE}.bam \
-	--in-vcf ${VCFDATA}/${SAMPLE}_hc.vcf \
-	--out-vcf ${VCFDATA}/${SAMPLE}_hc.cnnscore.vcf
+	--in-vcf ${VCFDATA}/${SAMPLE}.hc.vcf \
+	--out-vcf ${VCFDATA}/${SAMPLE}.hc.cnnscore.vcf
 

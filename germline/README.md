@@ -77,13 +77,13 @@ run_strelka_joint.sh config.txt
 
 The runtime has been tested on three publically available [WES dataset](https://github.com/si-medbif/AI-MD-variant-calling/example/README.md) and on a private WGS dataset.
 
-| Operation | Time WES | Time WGS |
-| --- | --- | --- |
-| HaplotypeCaller, full |  6 m | 44 m |
-| DeepVariant, full     | 11 m | 1 h 42 m |
-| HaplotypeCaller       |  6 m | 28 m |
-| DeepVariant           |  5 m | 35 m |
-| Smoove                |  5 m | 12 m |
-| Manta                 |  2 m | 19 m |
-| Strelka               | 17 m | 3 h 37 m |
-| CNVkit                |  5 m | 16 m |
+| Operation | WES | WGS 4 GPU | WGS 2 GPU |
+| --- | --- | --- | --- |
+| HaplotypeCaller, full |  6 m | 44 m | 2h 7m |
+| DeepVariant, full     | 11 m | 1 h 42 m | - |
+| HaplotypeCaller       |  6 m | 28 m | - |
+| DeepVariant           |  5 m | 35 m | 57 m |
+| Smoove                |  5 m | 12 m | 31 m |
+| Manta                 |  2 m | 19 m | 19 m |
+| Strelka               | 17 m | 37 m | 37 m |
+| CNVkit                |  5 m | 16 m | 19 m |

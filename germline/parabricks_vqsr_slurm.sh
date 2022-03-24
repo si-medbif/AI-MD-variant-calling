@@ -30,8 +30,8 @@ pbrun --version
 nvidia-smi
 
 pbrun vqsr \
-	--in-vcf ${VCFDATA}/${SAMPLE}_hc.vcf \
-	--out-vcf ${VCFDATA}/${SAMPLE}_hc.vqsr.vcf \
+	--in-vcf ${VCFDATA}/${SAMPLE}.hc.vcf \
+	--out-vcf ${VCFDATA}/${SAMPLE}.hc.vqsr.vcf \
 	--out-recal ${VCFDATA}/${SAMPLE}.recal \
 	--out-tranches ${VCFDATA}/${SAMPLE}.tranches \
 	--resource omni,known=false,training=true,truth=true,prior=12.0:${BUNDLE}/1000G_omni2.5.hg38.vcf \
@@ -41,8 +41,8 @@ pbrun vqsr \
 	--annotation ReadPosRankSum 
 
 #pbrun vqsr \
-#	--in-vcf ${VCFDATA}/${SAMPLE}_hc.vcf \
-#	--out-vcf ${VCFDATA}/${SAMPLE}_hc.vqsr.vcf \
+#	--in-vcf ${VCFDATA}/${SAMPLE}.hc.vcf \
+#	--out-vcf ${VCFDATA}/${SAMPLE}.hc.vqsr.vcf \
 #	--out-recal ${VCFDATA}/${SAMPLE}.recal \
 #	--out-tranches ${VCFDATA}/${SAMPLE}.tranches \
 #	--resource omni,known=false,training=true,truth=false,prior=12.0:${BUNDLE}/1000G_omni2.5.hg38.vcf \

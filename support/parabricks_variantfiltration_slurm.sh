@@ -21,11 +21,14 @@ module load parabricks/3.7.0-1.ampere
 export REF=/shared/dataset/parabricks_sample/Ref
 export BUNDLE=/shared/example_data/hg38bundle
 # User-input
-VCFDATA=$1
-SAMPLE=$2
+INVCF=$1
+let a=${#INVCF}-4
+first=${INVCF:0:$a}
+second=${INVCF:(-4)}
+OUTVCF=$first.filtered.vcf
 
 pbrun variantfiltration \
-	--in-vcf ${VCFDATA}/${SAMPLE}_hc.vcf \
-	--out-file ${VCFDATA}/${SAMPLE}_hc.filtered.vcf \
+	--in-vcf ${INVCF} \
+	--out-file ${OUTVCF} \
 	--expression "QD < 2.0 || ReadPosRankSum < -20.0 || SOR > 3.0 || FS > 60.0 || MQ < 40.0 || MQRankSum < -12.5" \
 	--filter-name FILTER

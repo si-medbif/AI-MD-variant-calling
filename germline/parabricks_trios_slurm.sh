@@ -32,7 +32,7 @@ do
 	IFS="," read -a arr <<< $line
 	vcf="${arr[2]}"
 	normal="${arr[3]}"
-	ALLVCF+=" --in-gvcf ${vcf}/${normal}_hc.g.vcf.gz"
+	ALLVCF+=" --in-gvcf ${vcf}/${normal}.hc.g.vcf.gz"
 	((count+=1))
 done
 
@@ -44,11 +44,11 @@ fi
 
 pbrun triocombinegvcf \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
-	--out-variants ${vcf}/combined_hc.g.vcf \
+	--out-variants ${vcf}/combined.hc.g.vcf \
 	${ALLVCF}
 
 pbrun genotypegvcf \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
-	--in-gvcf ${vcf}/combined_hc.g.vcf \
-	--out-vcf ${vcf}/combined_hc.vcf \
+	--in-gvcf ${vcf}/combined.hc.g.vcf \
+	--out-vcf ${vcf}/combined.hc.vcf \
 	--num-threads 4

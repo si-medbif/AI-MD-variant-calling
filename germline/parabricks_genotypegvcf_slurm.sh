@@ -25,13 +25,13 @@ SAMPLE=$2
 
 pbrun genotypegvcf \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
-	--in-gvcf ${VCFDATA}/${SAMPLE}_hc.g.vcf.gz \
-	--out-vcf ${VCFDATA}/${SAMPLE}_hc.vcf.gz \
+	--in-gvcf ${VCFDATA}/${SAMPLE}.hc.g.vcf.gz \
+	--out-vcf ${VCFDATA}/${SAMPLE}.hc.vcf.gz \
 	--num-threads 4
 
 
 #pbrun genotypegvcf \
 #	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 #	--in-selectvariants-dir ${VCFDATA} \
-#	--out-vcf ${VCFDATA}/${SAMPLE}_hc.gvcf.vcf \
+#	--out-vcf ${VCFDATA}/${SAMPLE}.hc.gvcf.vcf \
 #	--num-threads 4

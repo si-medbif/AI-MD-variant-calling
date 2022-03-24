@@ -36,5 +36,5 @@ pbrun germline \
 	--out-bam ${BAMDATA}/${SAMPLE}.bam  \
 	--out-recal-file ${BAMDATA}/${SAMPLE}.recal.txt \
 	--num-gpus 2 \
-	--out-variants ${VCFDATA}/${SAMPLE}_hc.vcf
+	--out-variants ${VCFDATA}/${SAMPLE}.hc.vcf
 

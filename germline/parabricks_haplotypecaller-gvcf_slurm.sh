@@ -31,8 +31,8 @@ pbrun haplotypecaller \
 	--in-bam ${BAMDATA}/${SAMPLE}.bam  \
 	--in-recal-file ${BAMDATA}/${SAMPLE}.recal.txt \
 	--num-gpus 2 \
-	--out-variants ${VCFDATA}/${SAMPLE}_hc.g.vcf.gz \
+	--out-variants ${VCFDATA}/${SAMPLE}.hc.g.vcf.gz \
 	--gvcf
 
 #pbrun indexgvcf \
-#	--input ${VCFDATA}/${SAMPLE}_hc.g.vcf.gz
+#	--input ${VCFDATA}/${SAMPLE}.hc.g.vcf.gz

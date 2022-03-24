@@ -43,7 +43,7 @@ pbrun deepvariant_germline \
 	--out-recal-file ${BAMDATA}/${SAMPLE}.recal.txt \
 	--out-bam ${BAMDATA}/${SAMPLE}.bam  \
 	--mode shortread \
-	--out-variants ${VCFDATA}/${SAMPLE}_deepvariant.vcf \
+	--out-variants ${VCFDATA}/${SAMPLE}.deepvariant.vcf \
 	--num-gpus 2 \
 	${DATATYPE}
 
