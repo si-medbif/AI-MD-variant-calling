@@ -34,15 +34,17 @@ There are tutorials for calling [germline](https://github.com/si-medbif/AI-MD-va
 
 ## [Germline variant detection](https://github.com/si-medbif/AI-MD-variant-calling/tree/main/germline#germline-variant-detection)
 
-The main ParaBricks pipeline is using BWA for read mapping, GATK for processing of BAM files and either the GATK-HaplotypeCaller or the Google DeepVariant for variant calling.
+The main ParaBricks pipeline is using BWA for read mapping, GATK for processing of BAM files and either the GATK-HaplotypeCaller or the Google DeepVariant for variant calling. In the example section there is also a [suggested workflow](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/suggested_germline_analysis.md#germline-wgs) for discovering rare germline variants from a WGS dataset using a combination of variant callers.
 
 Other stand-alone variant callers are also available:
 
 | Software     |  SNP | INDEL |  SV  | GPU accelerated |
 | ------------ |  :-: | :---: | :--: | :-------------: |
-| HaplotypeCaller |  V   | V     | X    | V               |
-| DeepVariant  |  V   | V     | X    | V               |
-| Smoove       |  X   | X     | V    | X               |
+| HaplotypeCaller | V | V | X | V |
+| DeepVariant  | V | V | X | V |
+| Strelka      | V | V | X | X |
+| Smoove       | X | X | V | X |
+| Manta        | X | X | V | X |
 
 ## [Somatic variant detection](https://github.com/si-medbif/AI-MD-variant-calling/tree/main/somatic#somatic-variant-detection)
 
