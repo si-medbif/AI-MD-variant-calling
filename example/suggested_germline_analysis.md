@@ -18,6 +18,7 @@ Output:
 * vcf/sample.hc.vcf
 
 Time spent: 2h 7m
+
 ---
 
 Next, the variants are filtered using the VariantRecalibration procedure from GATK.
@@ -31,6 +32,7 @@ Output:
 * vcf/sample.hc.vqsr.vcf
 
 Time spent: 11m
+
 ---
 
 DeepVariant and Strelka are also used to call variants, to provide better support for final list of variants.
@@ -47,6 +49,7 @@ Output:
 
 
 Time spent:  37m (strelka), 57m (DeepVariant)
+
 ---
 
 The three VCF files containing the called germline variants are combined. The input needs to be bgzipped and indexed with tabix, which means the variant calls from DeepVariant and HaplotypeCaller needs the be pre-processed.
@@ -70,6 +73,7 @@ Output:
 * vcf/sample.vbvm/unionVCF.vcf
 
 Time spent: 5m
+
 ---
 
 The file with the intersection of variants are annotated with GnomAD, ClinVar and 1000Genomes:
@@ -82,6 +86,7 @@ Ouput:
 * vcf/sample.vbvm/filteredVCF.annotated.vcf
 
 Time spent: 15m
+
 ---
 
 ## Structural variants
@@ -94,9 +99,10 @@ run_cnvkit.sh config_WGS.txt
 
 Output:
 
-* vcf/BB-B0863_cnvkit/BB-B0863.vcf
+* vcf/sample_cnvkit/sample.vcf
 
 Time spent: 19m
+
 ---
 
 Search for general structural variants with Smoove:
