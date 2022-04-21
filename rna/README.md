@@ -41,7 +41,7 @@ run_arriba.sh config.txt
 
 ## Test data:
 
-The runtime has been tested on a publicly available [blood RNA dataset](https://github.com/si-medbif/AI-MD-variant-calling/example/README.md).
+The runtime has been tested on a publicly available [blood RNA dataset](https://github.com/si-medbif/AI-MD-variant-calling/tree/develop/example#example-data-set).
 
 Full run times, FASTQ to VCF, using the main pipeline with STAR and the GATK software packages:
 | Operation | Time, 2 GPU |
