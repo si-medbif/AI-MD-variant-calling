@@ -22,3 +22,5 @@ run_mutect2.sh config2_WES_example.txt
 The example dataset are collected from [MAQC-IV (also known as SEQC2)](https://www.fda.gov/science-research/bioinformatics-tools/microarraysequencing-quality-control-maqcseqc#MAQC_IV). [Data repository](https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/seqc/Somatic_Mutation_WG/data/).
 
 The data was downloaded as BAM files and converted to FASTQ using the Parabricks function bam2fq.
+
+The example RNA-seq dataset was downloaded from [EBI](https://www.ebi.ac.uk/ena/browser/view/SRR11007180?show=reads)
