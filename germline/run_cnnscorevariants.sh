@@ -2,8 +2,6 @@
 
 SAMPLES=$1
 
-echo ${SAMPLES}
-
 LINES=$(cat $SAMPLES)
 
 for line in $LINES
@@ -12,5 +10,5 @@ do
 	bam="${arr[1]}"
 	vcf="${arr[2]}"
 	normal="${arr[3]}"
-	sbatch parabricks_deepvariant_slurm.sh $bam $vcf $normal WGS
+	sbatch parabricks_cnnscorevariants_slurm.sh $bam $vcf $normal
 done

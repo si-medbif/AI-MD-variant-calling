@@ -29,7 +29,7 @@ singularity run \
 	--bind ${VCFFOLDER}:/vcf,${BUNDLE}:/bundle \
 	/shared/example_data/singularity/gatk.4.2.5.0.sif \
 	gatk --java-options "-Xmx16g" VariantRecalibrator \
-	-V /vcf/${SAMPLE}_hc.vcf \
+	-V /vcf/${SAMPLE}.hc.vcf \
 	-O /vcf/${SAMPLE}.recal \
 	--tranches-file /vcf/${SAMPLE}.tranches \
 	--resource:omni,known=false,training=true,truth=true,prior=12.0 /bundle/1000G_omni2.5.hg38.vcf.gz \
@@ -40,9 +40,9 @@ singularity run \
 	--bind ${VCFFOLDER}:/vcf \
 	/shared/example_data/singularity/gatk.4.2.5.0.sif \
 	gatk --java-options "-Xmx16g" ApplyVQSR \
-	-V /vcf/${SAMPLE}_hc.vcf \
+	-V /vcf/${SAMPLE}.hc.vcf \
 	--recal-file /vcf/${SAMPLE}.recal \
 	--tranches-file /vcf/${SAMPLE}.tranches \
-	-O /vcf/${SAMPLE}_hc.vqsr.vcf \
+	-O /vcf/${SAMPLE}.hc.vqsr.vcf \
 	--mode BOTH
 

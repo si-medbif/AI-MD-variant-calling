@@ -4,8 +4,8 @@
 # https://slurm.schedmd.com/sbatch.html.
 # TODO: Look into array jobs. (https://help.rc.ufl.edu/doc/SLURM_Job_Arrays)
 
-#SBATCH --job-name=GenotypeGVCF-parabricks    # Job name    # default: script name or sbatch
-#SBATCH --output=job%j_GenotypeGVCF.log           # Output file    # default: slurm-<jobid>.out
+#SBATCH --job-name=freq-filter-parabricks    # Job name    # default: script name or sbatch
+#SBATCH --output=job%j_freq-filter.log           # Output file    # default: slurm-<jobid>.out
 #SBATCH --ntasks=1                    # Number of tasks    # default: 1 task per node
 #SBATCH --nodes=1              # Req min-max of nodes      # default: 1-as many as possible to satisfy the job without delay
 #SBATCH --nodelist=omega
@@ -18,20 +18,15 @@
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH
 module load parabricks/3.7.0-1.ampere
-export REF=/shared/dataset/parabricks_sample/Ref
 # User-input
-VCFDATA=$1
-SAMPLE=$2
+INVCF=$1
+let a=${#INVCF}-4
+first=${INVCF:0:$a}
+second=${INVCF:(-4)}
+OUTVCF=$first.freqfilter.vcf
 
-pbrun genotypegvcf \
-	--ref ${REF}/Homo_sapiens_assembly38.fasta \
-	--in-gvcf ${VCFDATA}/${SAMPLE}.hc.g.vcf.gz \
-	--out-vcf ${VCFDATA}/${SAMPLE}.hc.vcf.gz \
-	--num-threads 4
-
-
-#pbrun genotypegvcf \
-#	--ref ${REF}/Homo_sapiens_assembly38.fasta \
-#	--in-selectvariants-dir ${VCFDATA} \
-#	--out-vcf ${VCFDATA}/${SAMPLE}.hc.gvcf.vcf \
-#	--num-threads 4
+pbrun frequencyfiltration  \
+	--in-vcf ${INVCF} \
+	--out-vcf ${OUTVCF} \
+	--and-expression "1000Genomes_AF < 0.05" \
+	--and-expression "gnomad_v2.1.1_AF < 0.05"

@@ -62,7 +62,7 @@ run_strelka_germline.sh config.txt
 
 The scripts can be run using the same config file as above. All samples in the file will be combined into a single analysis. 
 
-Haplotypecaller trios only supports two or three samples.
+Haplotypecaller trios only supports *two* or *three* samples.
 Manta and Strelka were designed to only support family scale cohort sizes, i.e. up to 10s of samples. 
 
 ```bash
@@ -71,15 +71,24 @@ run_manta_joint.sh config.txt
 run_strelka_joint.sh config.txt
 ```
 
+# Suggested workflows for germline analysis
+
+* [Rare variants](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/suggested_germline_analysis.md#germline-wgs)
+* [Trios](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/suggested_germline-trios_analysis.md)
+
 # Example run-times
 
 ## Test data:
 
-The runtime has been tested on a publically available [WES dataset](https://github.com/si-medbif/AI-MD-variant-calling/example/README.md) and on a private WGS dataset.
+The runtime has been tested on three publically available [WES dataset](https://github.com/si-medbif/AI-MD-variant-calling/example/README.md) and on a private WGS dataset.
 
-Full run times, FASTQ to VCF, using the main pipeline with BWA and the GATK software packages:
-```
-    * WES, HC:                  6m (VCF)
-    * WES, DeepVariant:        11m (VCF)
-    * WGS, HC:                 44m (VCF) (filtered VCF)
-```
+| Operation | WES | WGS 4 GPU | WGS 2 GPU |
+| --- | --- | --- | --- |
+| HaplotypeCaller, full |  6 m | 44 m | 2h 7m |
+| DeepVariant, full     | 11 m | 1 h 42 m | - |
+| HaplotypeCaller       |  6 m | 28 m | - |
+| DeepVariant           |  5 m | 35 m | 57 m |
+| Smoove                |  5 m | 12 m | 31 m |
+| Manta                 |  2 m | 19 m | 19 m |
+| Strelka               | 17 m | 37 m | 37 m |
+| CNVkit                |  5 m | 16 m | 19 m |

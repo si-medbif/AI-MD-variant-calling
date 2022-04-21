@@ -11,13 +11,12 @@
 #SBATCH --export=ALL        # Pass the env var
 #SBATCH --partition=batch       # Req specific partition    # default: batch
 #SBATCH --mem=256gb                    # Memory size requested   # default: 4gb
-#SBATCH --cpus-per-task=32             # Number of CPUs per task   # default: 1 CPU per task 
+#SBATCH --cpus-per-task=64             # Number of CPUs per task   # default: 1 CPU per task 
 #SBATCH --time=24:00:00               # Time limit hrs:min:sec   # default: 01:00:00 (+1 hours of extra overtime limit) 
 
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH
-#module load parabricks/3.7.0-1.ampere # There seems to be a bug in the 3.7.0-1 version.
-module load parabricks/3.6.1-1-ampere
+module load parabricks/3.7.0-1.ampere-extra-tools 
 export REF=/shared/dataset/parabricks_sample/Ref
 # User input:
 BAMDATA=$1
@@ -28,6 +27,7 @@ NORMAL=$4
 pbrun strelka_workflow \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 	--out-prefix ${VCFDATA}/strelka_manta_${TUMOR} \
-	--num-threads 32 \
+	--num-threads 64 \
 	--in-tumor-bam ${BAMDATA}/${TUMOR}.bam  \
 	--in-normal-bam ${BAMDATA}/${NORMAL}.bam \
+	--bed /shared/example_data/hg38bundle/main_chroms.bed.gz

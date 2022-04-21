@@ -11,7 +11,7 @@
 #SBATCH --export=ALL        # Pass the env var
 #SBATCH --partition=batch       # Req specific partition    # default: batch
 #SBATCH --mem=128gb                    # Memory size requested   # default: 4gb
-#SBATCH --cpus-per-task=32             # Number of CPUs per task   # default: 1 CPU per task 
+#SBATCH --cpus-per-task=64             # Number of CPUs per task   # default: 1 CPU per task 
 #SBATCH --time=8:00:00               # Time limit hrs:min:sec   # default: 01:00:00 (+1 hours of extra overtime limit) 
 
 # Parabricks software and reference resources
@@ -27,6 +27,7 @@ SAMPLE=$3
 pbrun strelka \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 	--out-prefix ${VCFDATA}/${SAMPLE} \
-	--num-threads 32 \
-	--in-bams ${BAMDATA}/${SAMPLE}.bam
+	--num-threads 64 \
+	--in-bams ${BAMDATA}/${SAMPLE}.bam \
+	--bed /shared/example_data/hg38bundle/main_chroms.bed.gz
 
