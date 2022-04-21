@@ -28,9 +28,10 @@ git clone https://github.com/si-medbif/AI-MD-variant-calling.git
 export PATH="${PWD}/AI-MD-variant-calling/somatic":$PATH
 export PATH="${PWD}/AI-MD-variant-calling/support":$PATH
 export PATH="${PWD}/AI-MD-variant-calling/germline":$PATH
+export PATH="${PWD}/AI-MD-variant-calling/rna":$PATH
 ```
 
-There are tutorials for calling [germline](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/tutorial_germline.md#step-by-step-tutorial-to-analyse-an-example-wes-dataset-from-a-first-time-perspective) and [somatic](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/tutorial.md#step-by-step-tutorial-to-analyse-an-example-wes-dataset-from-a-first-time-perspective) variants in the [example](https://github.com/si-medbif/AI-MD-variant-calling/tree/main/example#example-scripts-and-data-sets) section.
+There are tutorials for calling [germline](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/tutorial_germline.md#step-by-step-tutorial-to-analyse-an-example-wes-dataset-from-a-first-time-perspective), [somatic](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/tutorial.md#step-by-step-tutorial-to-analyse-an-example-wes-dataset-from-a-first-time-perspective) and [RNA-seq](https://github.com/si-medbif/AI-MD-variant-calling/blob/main/example/tutorial_rna.md#step-by-step-tutorial-to-analyse-an-example-WTS/RNAseq-dataset-from-a-first-time-perspective) variants in the [example](https://github.com/si-medbif/AI-MD-variant-calling/tree/main/example#example-scripts-and-data-sets) section.
 
 ## [Germline variant detection](https://github.com/si-medbif/AI-MD-variant-calling/tree/main/germline#germline-variant-detection)
 
@@ -63,6 +64,8 @@ There are also a selection of other somatic variant callers available:
 
 - read more in the section for [somatic variant calling](https://github.com/si-medbif/AI-MD-variant-calling/tree/main/somatic#somatic-variant-detection)
 
-## RNA variant detection
+## [RNA variant detection](https://github.com/si-medbif/AI-MD-variant-calling/tree/develop/rna#rna-variant-detection)
 
-Coming soon ...
+The main ParaBricks pipeline is using STAR for read mapping, GATK for processing of the BAM files and GATK-HaplotypeCaller for variant calling. After generating the BAM files, other types of variant calling can also be used.
+
+Additionally, the tool Arriba is provided to perform fusion detection.
