@@ -15,7 +15,7 @@
 #SBATCH --cpus-per-task=32             # Number of CPUs per task   # default: 1 CPU per task 
 #SBATCH --time=8:00:00               # Time limit hrs:min:sec   # default: 01:00:00 (+1 hours of extra overtime limit) 
 
-set -x
+#set -x
 
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH

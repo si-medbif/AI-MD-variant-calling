@@ -37,4 +37,7 @@ pbrun rna_fq2bam \
 	--num-threads 6 \
 	--read-files-command zcat \
 	--two-pass-mode Basic \
+	--out-chim-type Junctions \
+	--out-chim-format 1 \
+	--min-non-chim-score-drop 0 \
 	--output-dir ${BAMDATA}/${SAMPLE}
