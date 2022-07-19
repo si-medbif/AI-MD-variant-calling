@@ -18,7 +18,7 @@
 
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH
-module load parabricks/3.7.0-1.ampere-extra-tools
+module load parabricks/3.8.0-1.ampere
 # User-input
 INVCF=$1
 

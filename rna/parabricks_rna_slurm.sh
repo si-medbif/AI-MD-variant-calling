@@ -19,7 +19,7 @@
 
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH
-module load parabricks/3.7.0-1.ampere
+module load parabricks/3.8.0-1.ampere
 export pbREF=/shared/dataset/parabricks_sample/Ref
 export REF=/shared/example_data/gencode
 export STAR=/shared/example_data/star_ref/GRCh38.v39_2.7.2a

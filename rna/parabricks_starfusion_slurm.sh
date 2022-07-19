@@ -16,7 +16,7 @@
 
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH
-module load parabricks/3.7.0-1.ampere
+module load parabricks/3.8.0-1.ampere
 export REF=/shared/dataset/parabricks_sample/Ref
 export STAR=/shared/example_data/starfusion/GRCh38_gencode_v37_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir
 export ENSEMBL=/shared/example_data/ensembl

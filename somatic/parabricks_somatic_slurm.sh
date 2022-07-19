@@ -8,7 +8,7 @@
 #SBATCH --output=job%j_somatic.log           # Output file    # default: slurm-<jobid>.out
 #SBATCH --ntasks=1                    # Number of tasks    # default: 1 task per node
 #SBATCH --nodes=1              # Req min-max of nodes      # default: 1-as many as possible to satisfy the job without delay
-#SBATCH --nodelist=omega
+#SBATCH --nodelist=zeta
 #SBATCH --export=ALL        # Pass the env var
 #SBATCH --partition=batch       # Req specific partition    # default: batch
 #SBATCH --gres=gpu:2                 # Number of GPUs requested  # default: none (0) --gres=gpu:3g.20gb:2
@@ -18,7 +18,7 @@
 
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH
-module load parabricks/3.7.0-1.ampere
+module load parabricks/3.8.0-1.ampere
 export REF=/shared/dataset/parabricks_sample/Ref
 # User-input
 FASTQDATA=$1
