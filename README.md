@@ -1,5 +1,10 @@
 # AI-MD-variant-calling
 
+## Updates
+
+Parabricks has been updated to v3.8.
+* Smoove is still on 3.7, as the updated version currently does not work.
+
 ## Description
 
 This repository contains scripts and information for doing variant detection on a HPC cluster with GPU support. Input data can be either whole genome sequence (WGS) or whole exome sequence (WES). Currently there is a section on somatic variant detection. Germline and RNA variant detection will be added at a later date.
