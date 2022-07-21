@@ -2,8 +2,14 @@
 
 ## Updates
 
-Parabricks has been updated to v3.8.
-* Smoove is still on 3.7, as the updated version currently does not work.
+21.07.2022:
+Parabricks has been updated to v3.8 and this is now available by changing the slurm script to load the module "parabricks/3.8.0-1.ampere". The 3.7 version is also still available.
+The licensensing is different for the two versions:
+* 3.8 is using a flexible license, usable on any of the nodes but limited to 2 GPUs total.
+* 3.7 is limited to the omega node and 2 GPUs per job, but allows for using more GPUs total.
+
+Issues found with the upgrade to 3.8:
+* Smoove is currently not working on our cluster in version 3.8.
 
 ## Description
 

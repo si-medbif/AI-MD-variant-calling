@@ -1,5 +1,7 @@
 #! /bin/bash
 
+# TODO: Figure out use-cases for autobin and coverage
+
 SAMPLES=$1
 
 LINES=$(cat $SAMPLES)
@@ -10,6 +12,7 @@ do
 	bam="${arr[1]}"
 	vcf="${arr[2]}"
 	normal="${arr[3]}"
-	#echo "This tool is not available with the current installation."
-	sbatch parabricks_cnvkit_slurm.sh $bam $vcf $normal
+	sbatch parabricks_cnvkit_slurm.sh $bam $vcf $normal batch
+	#sbatch parabricks_cnvkit_slurm.sh $bam $vcf $normal autobin
+	#sbatch parabricks_cnvkit_slurm.sh $bam $vcf $normal coverage
 done

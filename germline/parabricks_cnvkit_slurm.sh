@@ -3,8 +3,6 @@
 # For the complete information about SBATCH:
 # https://slurm.schedmd.com/sbatch.html.
 
-# TODO: This tool is not available yet, requires "--extra-tools" to be passed when installing parabrcks.
-
 #SBATCH --job-name=cnvkit-parabricks    # Job name    # default: script name or sbatch
 #SBATCH --output=job%j_cnvkit.log           # Output file    # default: slurm-<jobid>.out
 #SBATCH --ntasks=1                    # Number of tasks    # default: 1 task per node
@@ -18,16 +16,46 @@
 
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH
-module load parabricks/3.8.0-1.ampere-extra-tools
+module load parabricks/3.8.0-1.ampere
 export REF=/shared/dataset/parabricks_sample/Ref
+export REF_DB=/shared/example_data/ensembl
+export REF_EXONS=/shared/example_data/bed
 # User-input
 BAMDATA=$1
 VCFDATA=$2
 SAMPLE=$3
+operation=$4
+PRECNN=""
 
+if [[ $operation = "batch" ]]
+then
 pbrun cnvkit \
+	--sub-command batch \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 	--in-bam ${BAMDATA}/${SAMPLE}.bam \
-	--output-dir ${VCFDATA}/${SAMPLE}_cnvkit \
-	--generate-vcf
-
+	--batch-output-dir ${VCFDATA}/${SAMPLE}_cnvkit-batch \
+	--batch-annotate ${REF_DB}/Homo_sapiens.GRCh38.105.chr.gtf \
+	--generate-vcf \
+	${PRECNN}
+elif [[ $operation = "autobin" ]]
+then
+pbrun cnvkit \
+	--sub-command autobin \
+	--ref ${REF}/Homo_sapiens_assembly38.fasta \
+	--in-bam ${BAMDATA}/${SAMPLE}.bam \
+	--target-output-bed ${VCFDATA}/${SAMPLE}_target.bed \
+	--antitarget-output-bed ${VCFDATA}/${SAMPLE}_antitarget.bed \
+	--autobin-access ${REF_EXONS}/S31285117_Regions.bed \
+	--autobin-targets ${REF_EXONS}/S31285117_Regions.bed \
+	--autobin-annotate ${REF_DB}/Homo_sapiens.GRCh38.105.chr.gtf
+elif [[ $operation = "coverage" ]]
+then
+pbrun cnvkit \
+	--sub-command coverage \
+	--ref ${REF}/Homo_sapiens_assembly38.fasta \
+	--in-bam ${BAMDATA}/${SAMPLE}.bam \
+	--coverage-output ${VCFDATA}/${SAMPLE}.coverage.txt \
+	--coverage-interval ${REF_EXONS}/S31285117_Regions.bed
+else
+	echo "Unknown option"
+fi
