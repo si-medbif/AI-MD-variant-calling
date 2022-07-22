@@ -2,7 +2,6 @@
 
 # For the complete information about SBATCH:
 # https://slurm.schedmd.com/sbatch.html.
-# TODO: Look into array jobs. (https://help.rc.ufl.edu/doc/SLURM_Job_Arrays)
 
 #SBATCH --job-name=vqsr    # Job name    # default: script name or sbatch
 #SBATCH --output=job%j_vqsr.log           # Output file    # default: slurm-<jobid>.out
@@ -16,9 +15,6 @@
 #SBATCH --time=2:00:00               # Time limit hrs:min:sec   # default: 01:00:00 (+1 hours of extra overtime limit) 
 
 # Parabricks software and reference resources
-export MODULEPATH=/shared/software/modules:$MODULEPATH
-module load parabricks/3.8.0-1.ampere
-#module load parabricks/3.6.1-1-ampere
 export REF=/shared/dataset/parabricks_sample/Ref
 export BUNDLE=/shared/example_data/hg38bundle
 # User-input

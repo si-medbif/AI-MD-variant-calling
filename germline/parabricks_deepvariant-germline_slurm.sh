@@ -2,7 +2,6 @@
 
 # For the complete information about SBATCH:
 # https://slurm.schedmd.com/sbatch.html.
-# TODO: Look into array jobs. (https://help.rc.ufl.edu/doc/SLURM_Job_Arrays)
 
 #SBATCH --job-name=deepvariant-germline-parabricks    # Job name    # default: script name or sbatch
 #SBATCH --output=job%j_deepvariant-germline.log           # Output file    # default: slurm-<jobid>.out
@@ -19,6 +18,7 @@
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH
 module load parabricks/3.8.0-1.ampere
+#module load parabricks/3.7.0-1.ampere # Limited to the omega node
 export REF=/shared/dataset/parabricks_sample/Ref
 # User-input
 FASTQDATA=$1

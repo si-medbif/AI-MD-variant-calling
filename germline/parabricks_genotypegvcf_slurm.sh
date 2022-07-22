@@ -2,7 +2,6 @@
 
 # For the complete information about SBATCH:
 # https://slurm.schedmd.com/sbatch.html.
-# TODO: Look into array jobs. (https://help.rc.ufl.edu/doc/SLURM_Job_Arrays)
 
 #SBATCH --job-name=GenotypeGVCF-parabricks    # Job name    # default: script name or sbatch
 #SBATCH --output=job%j_GenotypeGVCF.log           # Output file    # default: slurm-<jobid>.out

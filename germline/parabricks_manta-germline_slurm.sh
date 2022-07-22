@@ -17,7 +17,6 @@
 # Parabricks software and reference resources
 export MODULEPATH=/shared/software/modules:$MODULEPATH
 module load parabricks/3.8.0-1.ampere
-#module load parabricks/3.6.1-1-ampere
 export REF=/shared/dataset/parabricks_sample/Ref
 # User input
 BAMDATA=$1

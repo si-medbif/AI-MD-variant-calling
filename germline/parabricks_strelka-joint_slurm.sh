@@ -12,7 +12,7 @@
 #SBATCH --time=4:00:00     
 
 export MODULEPATH=/shared/software/modules:$MODULEPATH
-module load parabricks/3.6.1-1-ampere
+module load parabricks/3.8.0-1-ampere
 export REF=/shared/dataset/parabricks_sample/Ref
 
 SAMPLES=$1
