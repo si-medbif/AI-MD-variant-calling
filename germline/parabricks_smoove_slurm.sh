@@ -25,12 +25,12 @@ export REF=/shared/dataset/parabricks_sample/Ref
 BAMDATA=$1
 VCFDATA=$2
 SAMPLE=$3
-BED=/shared/example_data/bed/exclude.cnvnator_100bp.GRCh38.20170403.bed
+export BED=/shared/example_data/bed/exclude.cnvnator_100bp.GRCh38.20170403.bed.gz
 
 pbrun smoove \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 	--in-bam  ${BAMDATA}/${SAMPLE}.bam \
 	--output-dir   ${VCFDATA}/${SAMPLE}_smoove \
-	--name  ${SAMPLE}
-#	--smoove-options "--exclude ${BED}"
+	--name  ${SAMPLE} #\
+	#--exclude-bed-file ${BED}
 
