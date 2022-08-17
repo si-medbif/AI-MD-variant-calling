@@ -16,11 +16,14 @@ Run just DNA read alignment and create BAM files for further analysis
 run_fastq2bam.sh config.txt
 ```
 
-Calculate QC-stats of the generated BAM files, the output is located in the bam-folder specified in the config-file:
+Calculate QC-stats of the generated BAM files, the output is located in the bam-folder specified in the config-file.
 ```bash
 run_bammetrics.sh config.txt
+run_bammetrics.WES.sh config.txt
 run_collectmultiplemetrics.sh config.txt
 ```
+The bammetrics program uses total number of target bases as a baseline. So when analysing WES data, the bed file specifying targeted exons has to be provided to give useful results.
+
 
 ## VCF
 
