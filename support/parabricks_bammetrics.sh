@@ -10,7 +10,7 @@
 #SBATCH --nodelist=omega
 #SBATCH --export=ALL        # Pass the env var
 #SBATCH --partition=batch       # Req specific partition    # default: batch
-#SBATCH --mem=128gb                    # Memory size requested   # default: 4gb
+#SBATCH --mem=512gb                    # Memory size requested   # default: 4gb
 #SBATCH --time=3:00:00               # Time limit hrs:min:sec   # default: 01:00:00 (+1 hours of extra overtime limit) 
 #SBATCH --cpus-per-task=12             # Number of CPUs per task   # default: 1 CPU per task 
 
@@ -19,14 +19,23 @@ export MODULEPATH=/shared/software/modules:$MODULEPATH
 module load parabricks/3.7.0-1.ampere
 
 export REF=/shared/dataset/parabricks_sample/Ref
+export DATABASE=/shared/example_data/bed
 # User-input
 BAMDATA=$1
 BAMSAMPLE=$2
+DATA=$3
 
+if [[ $DATA = "WES" ]]
+then
+	 DATATYPE="--interval-file /shared/example_data/bed/S31285117_Regions.bed"
+else
+	 DATATYPE=""
+fi
 
 pbrun bammetrics \
 	--ref ${REF}/Homo_sapiens_assembly38.fasta \
 	--num-threads 12 \
 	--bam ${BAMDATA}/${BAMSAMPLE}.bam  \
-	--out-metrics-file ${BAMDATA}/${BAMSAMPLE}.metrics.txt
+	--out-metrics-file ${BAMDATA}/${BAMSAMPLE}.metrics.txt \
+	${DATATYPE}
 
